@@ -1,14 +1,39 @@
 import './App.css';
-import { motion } from "framer-motion"
+import { motion  } from "framer-motion"
 import Navbar from './components/Navbar';
+import Blobs from './components/Blobs/Blobs';
+import Parallax from './components/Parallax';
+
+const cardVariants = {
+  offscreen: {
+    y: 300
+  },
+  onscreen: {
+    y: 5,
+    rotate: -10,
+    transition: {
+      type: "spring",
+      bounce: 0.4,
+      duration: 0.8
+    }
+  }
+};
 
 function App() {
   return (
     <div>
       <Navbar />
-      <motion.h1 initial={{ opacity: 0 }} transition={{ duration: 2 }} animate={{ color: '#033448', opacity: 1 }} className="text-3xl font-bold underline text-center mt-8">
-        Portfolio
-      </motion.h1>
+      {/* <Blobs /> */}
+      <motion.div className='flex justify-center items-center w-screen h-screen'>
+        <Parallax>
+          <h1 className="text-5xl font-bold text-white">
+            Portfolio
+          </h1>
+        </Parallax>
+      </motion.div>
+      <div className='h-screen'>
+        
+      </div>
     </div>
   );
 }

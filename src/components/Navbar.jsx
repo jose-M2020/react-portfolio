@@ -37,7 +37,7 @@ const Navbar = () => {
   return (
     <header className='fixed 
                        top-0 w-full 
-                       bg-sky-900 
+                       bg-[#082541]/80 
                        text-white 
                        p-6
                        z-50'>
@@ -50,7 +50,7 @@ const Navbar = () => {
                 <MenuToggle toggle={() => toggleOpen()} />
             </div>
           </div>
-          <motion.ul className='bg-sky-900 
+          <motion.ul className='bg-[#082541]/80 
                           absolute top-[-100px] left-0 md:static 
                           h-screen md:h-auto 
                           w-screen md:w-auto 
@@ -59,8 +59,8 @@ const Navbar = () => {
                           text-3xl md:text-base font-semibold
                           z-40'
                       variants={navbar}>
-              {links.map(({ name }) => (
-                  <li className='text-center'><a href='#'>{ name }</a></li>
+              {links.map(({ name }, index) => (
+                  <li className='text-center' key={index}><a href='#'>{ name }</a></li>
               ))}
           </motion.ul>
         </motion.nav>
