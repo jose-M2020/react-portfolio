@@ -1,8 +1,7 @@
 import './App.css';
-import { motion  } from "framer-motion"
-import Navbar from './components/Navbar';
-import Blobs from './components/Blobs/Blobs';
-import Parallax from './components/Parallax';
+import { motion  } from "framer-motion";
+import { Navbar, Blobs, Parallax, Projects } from './components';
+import { projects } from './utils/constants';
 
 const cardVariants = {
   offscreen: {
@@ -24,16 +23,19 @@ function App() {
     <div>
       <Navbar />
       {/* <Blobs /> */}
-      <motion.div className='flex justify-center items-center w-screen h-screen'>
+      <section className='flex justify-center items-center w-screen h-screen'>
         <Parallax>
           <h1 className="text-5xl font-bold text-white">
             Portfolio
           </h1>
         </Parallax>
-      </motion.div>
-      <div className='h-screen'>
-        
-      </div>
+      </section>
+      <section className="py-24">
+        <Projects items={projects} />
+      </section>
+      <section className='py-24'>
+
+      </section>
     </div>
   );
 }

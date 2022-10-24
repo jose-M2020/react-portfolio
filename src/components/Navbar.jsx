@@ -1,7 +1,7 @@
 import React from 'react'
 import logo from '../logo.png'
 import { motion, useCycle } from "framer-motion"
-import { MenuToggle } from './MenuToggle'
+import { MenuToggle } from './'
 
 const navbar = {
   open: {
