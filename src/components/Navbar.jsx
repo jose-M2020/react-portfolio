@@ -21,23 +21,22 @@ const Navbar = () => {
 
   const links = [
     {
-        name: 'HOME',
+        name: 'ACERCA',
+        url: '/#about'
     },
     {
-        name: 'ABOUT',
+        name: 'PORTAFOLIO',
+        url: '/#portfolio'
     },
     {
-        name: 'PROJECTS',
-    },
-    {
-        name: 'CONTACT',
+        name: 'CONTACTO',
+        url: '/#contact'
     }
   ];
 
   return (
     <header className='fixed 
-                       top-0 w-full 
-                       bg-[#082541]/80 
+                       top-0 w-full
                        text-white 
                        p-6
                        z-50'>
@@ -45,22 +44,21 @@ const Navbar = () => {
                     animate={isOpen ? "open" : "closed"}
                     initial={isOpen ? "open" : "closed"}>
           <div className='flex align-middle justify-between w-full z-50'>
-            <a href='#'><img src={ logo } className='h-7' alt='Logo' /></a>
+            <a aria-current="page" href='#'><img src={ logo } className='h-7' alt='Logo' /></a>
             <div className='block md:hidden'>
                 <MenuToggle toggle={() => toggleOpen()} />
             </div>
           </div>
-          <motion.ul className='bg-[#082541]/80 
-                          absolute top-[-100px] left-0 md:static 
+          <motion.ul className='absolute top-[-100px] left-0 md:static 
                           h-screen md:h-auto 
                           w-screen md:w-auto 
                           flex align-middle justify-center flex-col md:flex-row gap-6 md:gap-3
                           opacity-0 md:opacity-100
-                          text-3xl md:text-base font-semibold
+                          text-3xl md:text-sm font-semibold
                           z-40'
                       variants={navbar}>
-              {links.map(({ name }, index) => (
-                  <li className='text-center' key={index}><a href='#'>{ name }</a></li>
+              {links.map(({ name, url }, index) => (
+                  <li className='text-center' key={index}><a href={url}>{ name }</a></li>
               ))}
           </motion.ul>
         </motion.nav>

@@ -7,14 +7,14 @@ const Projects = ({ items }) => {
   
 
   return (
-    <div className="container mx-auto">
-      <div className="text-7xl font-extrabold">
-        <span className="bg-clip-text text-transparent bg-gradient-to-b from-[#94ceff] to-transparent">
-          Proyectos
-        </span>
+    <div className="">
+      <div className="text-7xl font-extrabold mb-6">
+        <h2 className="bg-clip-text text-transparent bg-gradient-to-b from-[#94ceff] to-transparent">
+          Portafolio
+        </h2>
       </div>
       <Parallax>
-        <div className="flex flex-wrap -m-1 md:-m-2 p-4">
+        <div className="flex flex-wrap -m-1 md:-m-2 py-4">
           {items.map((item, index) => (
             <div className="flex flex-wrap w-full sm:w-1/3" key={index}>
                 <ProjectCard data={item} setSelectedId={setSelectedId} />

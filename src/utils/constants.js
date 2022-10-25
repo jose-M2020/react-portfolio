@@ -37,3 +37,24 @@ export const projects = [
         }
     }
 ]
+
+export const skills = {
+    front: [
+        { name: 'HTML', icon: 'https://img.icons8.com/color/48/000000/html-5--v1.png' },
+        { name: 'CSS', icon: 'https://img.icons8.com/color/48/000000/css3.png' },
+        { name: 'SASS', icon: 'https://img.icons8.com/color/48/000000/sass.png' },
+        { name: 'JavaScript', icon: 'https://img.icons8.com/color/48/000000/javascript--v1.png' },
+        { name: 'TypeScript', icon: 'https://img.icons8.com/color/48/000000/typescript.png' },
+        { name: 'BootStrap', icon: 'https://img.icons8.com/color/48/000000/bootstrap.png' },
+        { name: 'Tailwind CSS', icon: 'https://img.icons8.com/color/48/000000/tailwind_css.png' },
+        { name: 'Angular', icon: 'https://img.icons8.com/fluency/48/000000/angularjs.png' },
+        { name: 'React', icon: 'https://img.icons8.com/color/48/000000/react-native.png' },
+    ],
+    back: [
+        { name: 'PHP', icon: 'https://img.icons8.com/officexs/40/000000/php-logo.png' },
+        { name: 'Laravel', icon: 'https://img.icons8.com/fluency/48/000000/laravel.png' },
+        { name: 'NodeJS', icon: 'https://img.icons8.com/color/48/000000/nodejs.png' },
+        { name: 'MySQL', icon: 'https://img.icons8.com/fluency/48/000000/mysql-logo.png' },
+        { name: 'MongoDB', icon: 'https://img.icons8.com/color/48/000000/mongodb.png' },
+    ]
+}

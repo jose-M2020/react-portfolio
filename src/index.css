@@ -8,9 +8,22 @@ body {
     background-size: cover;
     background-attachment: fixed;
     overflow-x: hidden;
+    
+    /* background: #192733;
+    color: #8240ff; */
 }
 
 body:has(.modal--active) {
     overflow: hidden;
     padding-right: 15px;
 }
+
+/* .root{
+    transform: perspective(1300px) rotateY(49deg) translateY(38px) scale(0.5);
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background: #14274e;
+    transition: 0.3s;
+} */

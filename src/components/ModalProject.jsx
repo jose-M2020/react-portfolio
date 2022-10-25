@@ -26,7 +26,7 @@ const ModalProject = ({ id, setSelectedId }) => {
                            fixed top-0 left-0 
                            h-screen w-screen
                            z-50'
-                initial={{ opacity: 0 }}
+                initial={{ opacity: 0.5 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0, transition: { duration: 0.15 } }}>
       <div className='flex justify-center items-center min-w-sm h-full scroll-auto'>
