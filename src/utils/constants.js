@@ -58,3 +58,26 @@ export const skills = {
         { name: 'MongoDB', icon: 'https://img.icons8.com/color/48/000000/mongodb.png' },
     ]
 }
+
+export const socialMedia = [
+    {
+        name: 'LinkedIn',
+        link: 'https://www.linkedin.com/in/jose-silva20',
+        icon: 'fa-brands fa-linkedin-in'
+    },
+    {
+        name: 'Facebook',
+        link: 'https://www.facebook.com/profile.php?id=100081383329122',
+        icon: 'fa-brands fa-facebook'
+    },
+    {
+        name: 'GitHub',
+        link: 'https://github.com/jose-M2020',
+        icon: 'fa-brands fa-github'
+    },
+    {
+        name: 'CodePen',
+        link: 'https://codepen.io/chema2020',
+        icon: 'fa-brands fa-codepen'
+    },
+]

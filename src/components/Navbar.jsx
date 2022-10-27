@@ -35,9 +35,8 @@ const Navbar = () => {
   ];
 
   return (
-    <header className='fixed 
-                       top-0 w-full
-                       text-white 
+    <header className='fixed top-0 w-full
+                       text-white backdrop-blur-sm 
                        p-6
                        z-50'>
         <motion.nav className='flex align-middle justify-between'

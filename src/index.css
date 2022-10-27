@@ -2,21 +2,50 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
     background-image: url(../public/bg.svg);
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
-    overflow-x: hidden;
-    
-    /* background: #192733;
-    color: #8240ff; */
+    overflow-x: hidden;    
 }
 
 body:has(.modal--active) {
     overflow: hidden;
     padding-right: 15px;
 }
+
+main section:not(:first-child){
+    background-color: rgb(4, 5, 7, .7);
+    color: #8240ff;
+}
+
+.custom-shape-divider-bottom-1666745174 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1666745174 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 124px;
+    transform: rotateY(180deg);
+}
+
+.custom-shape-divider-bottom-1666745174 .shape-fill {
+    fill: rgb(4, 5, 7, .7);
+}
+
 
 /* .root{
     transform: perspective(1300px) rotateY(49deg) translateY(38px) scale(0.5);

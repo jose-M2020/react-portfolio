@@ -1,5 +1,5 @@
-import { useState, useRef, useLayoutEffect, ReactNode } from 'react';
-import { motion, useViewportScroll, useTransform, useSpring, useReducedMotion } from 'framer-motion';
+import { useState, useRef, useLayoutEffect } from 'react';
+import { motion, useScroll, useTransform, useSpring, useReducedMotion } from 'framer-motion';
 
 const Parallax = ({ children, offset = 70 }) => {
   const prefersReducedMotion = useReducedMotion();
@@ -7,7 +7,7 @@ const Parallax = ({ children, offset = 70 }) => {
   const [clientHeight, setClientHeight] = useState(0);
   const ref = useRef(null);
 
-  const { scrollY } = useViewportScroll();
+  const { scrollY } = useScroll();
 
   const initial = elementTop - clientHeight;
   const final = elementTop + offset;
