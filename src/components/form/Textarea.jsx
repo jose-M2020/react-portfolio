@@ -13,7 +13,7 @@ const Textarea = ({ label, name, type = "text", ...rest }) => {
                         shadow-sm shadow-teal-300/60
                         dark:text-white dark:border-teal-300
                         focus:shadow-teal-300 focus:outline-none focus:ring-0 peer"
-             {...rest}>
+             {...rest} required>
       </textarea>
       <label htmlFor={name} 
              className="text-sm text-gray-500

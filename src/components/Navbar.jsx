@@ -7,6 +7,7 @@ const navbar = {
   open: {
       top: '0', 
       opacity: 1,
+      visibility: 'visible',
       transition: {
         duration: .5
       }
@@ -52,7 +53,7 @@ const Navbar = () => {
                           h-screen md:h-auto 
                           w-screen md:w-auto 
                           flex align-middle justify-center flex-col md:flex-row gap-6 md:gap-3
-                          opacity-0 md:opacity-100
+                          opacity-0 md:opacity-100 invisible md:visible
                           text-3xl md:text-sm font-semibold
                           z-40'
                       variants={navbar}>

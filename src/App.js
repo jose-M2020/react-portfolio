@@ -77,7 +77,6 @@ function App() {
                   </div>
                 </div>
                 <div className='md:w-2/4'>
-                  <h3 className='font-bold mb-1'>Habilidades</h3>
                   <Skills/>
                 </div>
               </div>
@@ -101,7 +100,7 @@ function App() {
                 <Input label='Asunto' name="subject" />
                 <Textarea label='Escribe tu mensaje...' name="message" />
                 <div className="form-group" data-netlify-recaptcha="true"></div>
-                <Button text='Enviar' />
+                <Button text='Enviar' className='w-full' />
               </Parallax>
             </form>
           </div>

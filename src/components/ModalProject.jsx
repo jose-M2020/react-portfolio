@@ -16,8 +16,10 @@ const ModalProject = ({ id, setSelectedId }) => {
   }, [])
 
   const handleClickOutside = (e) => {
+    console.log(e.target)
     if(!cardRef?.current?.contains(e.target)){
         setSelectedId(null);
+        // console.log('click outside')
     }
   }
 
@@ -31,14 +33,14 @@ const ModalProject = ({ id, setSelectedId }) => {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0, transition: { duration: 0.15 } }}>
       <div className='flex justify-center items-center min-w-sm h-full scroll-auto'>
-        <div className='bg-black/40 p-6 rounded-xl' ref={cardRef}>
+        <div className='bg-black/60 p-6 rounded-xl' ref={cardRef}>
           <div>
             <h5 className='text-3xl mb-4 font-semibold'>{ title }</h5>
           </div>
           <motion.div className='mb-4' layoutId={`card-image-container-${id}`}>
             <img alt="Project" className="block object-cover object-center w-full h-full rounded-lg"
                  src={img} />
-            <motion.button onClick={() => setSelectedId(null)} />
+            {/* <motion.button onClick={() => setSelectedId(null)} /> */}
           </motion.div>
           <div className='flex gap-2'>
             <Button text='Demo' href={demo} />

@@ -13,6 +13,8 @@ const Parallax = ({ children, offset = 70 }) => {
   const final = elementTop + offset;
 
 //   const opacity = useTransform(scrollY, [initial, final], [1, 0]);
+// const rotateX = useTransform(scrollY, [initial, final], [20, -20]);
+  // const scale = useTransform(scrollY, [initial, final], [0.8, 1]);
   const yRange = useTransform(scrollY, [initial, final], [offset, -offset]);
   const y = useSpring(yRange, { stiffness: 400, damping: 90 });
 
@@ -26,7 +28,7 @@ const Parallax = ({ children, offset = 70 }) => {
     window.addEventListener('resize', onResize)
     return () => window.removeEventListener('resize', onResize)
   }, [ref])
-
+  
   // Don't parallax if the user has "reduced motion" enabled
   if (prefersReducedMotion) {
     return <>{children}</>
