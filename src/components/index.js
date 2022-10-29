@@ -10,4 +10,5 @@ export { default as ModalProject } from './ModalProject';
 export { default as Skills } from './Skills';
 export { default as Input } from './form/Input';
 export { default as Textarea } from './form/Textarea';
+export { default as GradientAnimation } from './GradientAnimation';
 

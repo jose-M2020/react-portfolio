@@ -1,26 +1,25 @@
 import './App.css';
-import { motion  } from "framer-motion";
-import { Navbar, Blobs, Parallax, Projects, Skills, Footer, Input, Button, Textarea } from './components';
+import { Navbar, Parallax, Projects, Skills, Footer, Input, Button, Textarea, GradientAnimation } from './components';
 import { projects } from './utils/constants';
 
-const cardVariants = {
-  offscreen: {
-    y: 300
-  },
-  onscreen: {
-    y: 5,
-    rotate: -10,
-    transition: {
-      type: "spring",
-      bounce: 0.4,
-      duration: 0.8
-    }
-  }
-};
+// const cardVariants = {
+//   offscreen: {
+//     y: 300
+//   },
+//   onscreen: {
+//     y: 5,
+//     rotate: -10,
+//     transition: {
+//       type: "spring",
+//       bounce: 0.4,
+//       duration: 0.8
+//     }
+//   }
+// };
 
 const SubTitle = ({text}) => (
   <div className="text-7xl font-extrabold mb-6">
-    <h2 className="bg-clip-text text-transparent bg-gradient-to-b from-[#163971] to-transparent">
+    <h2 className="bg-clip-text text-transparent bg-gradient-to-b from-[#08557f] to-transparent">
       { text }
     </h2>
   </div>
@@ -29,9 +28,7 @@ const SubTitle = ({text}) => (
 function App() {
   return (
     <div>
-      {/* <div className='fixed h-screen w-screen z-0'>
-        <img src='/bg.svg' className='w-full h-full' />
-      </div> */}
+      <GradientAnimation />
       <Navbar />
       {/* <Blobs /> */}
       <main>
@@ -46,7 +43,7 @@ function App() {
                 </h1>
               </div>
               <div>
-                <img src='user-coding.png' className='w-4/5 mx-auto md:ml-auto md:mr-0' />
+                <img src='user-coding.png' className='w-4/5 mx-auto md:ml-auto md:mr-0' alt='User coding'/>
               </div>
             </div>
           </Parallax>

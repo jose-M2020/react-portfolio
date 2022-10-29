@@ -44,7 +44,7 @@ const Navbar = () => {
                     animate={isOpen ? "open" : "closed"}
                     initial={isOpen ? "open" : "closed"}>
           <div className='flex align-middle justify-between w-full z-50'>
-            <a aria-current="page" href='#'><img src={ logo } className='h-7' alt='Logo' /></a>
+            <a aria-current="page" href='/#'><img src={ logo } className='h-7' alt='Logo' /></a>
             <div className='block md:hidden'>
                 <MenuToggle toggle={() => toggleOpen()} />
             </div>

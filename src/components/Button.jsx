@@ -12,7 +12,7 @@ const Button = ({ text, href = null, className = '', ...props}) => {
   return (
     <>
       {href ? 
-        <a href={href} className={btnStyles} target='_blank' {...props}>
+        <a href={href} className={btnStyles} target='_blank' rel="noreferrer" {...props}>
           {text}
         </a>
       :

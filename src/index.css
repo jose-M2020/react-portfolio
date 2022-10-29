@@ -22,7 +22,7 @@ body:has(.modal--active) {
 }
 
 main section:not(:first-child){
-    background-color: rgb(4, 5, 7, .7);
+    background-color: #0a1218;
     width: 100vw;
 }
 
@@ -61,9 +61,26 @@ main section:not(:first-child){
 }
 
 .custom-shape-divider-bottom-1666745174 .shape-fill {
-    fill: rgb(4, 5, 7, .7);
+    fill: #0a1218;
 }
 
+#gradient-canvas {
+    width:100vw;
+    height:100vh;
+    /* --gradient-color-1: #024a50; 
+    --gradient-color-2: #092d2e; 
+    --gradient-color-3: #054c64;  
+    --gradient-color-4: #0b427c; */
+    --gradient-color-1: #043D5D; 
+  --gradient-color-2: #032E46;
+  --gradient-color-3: #007765;
+  --gradient-color-4: #0F595E;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+  
 
 /* .root{
     transform: perspective(1300px) rotateY(49deg) translateY(38px) scale(0.5);
