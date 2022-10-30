@@ -19,7 +19,7 @@ const Skills = () => {
       <ul className='flex flex-wrap'>
         {skillsSelected.map(({ name, icon }, index) => (
             <li className='flex items-center w-2/4 py-1' key={index}>
-                <img src={icon} className="w-9 mr-3" loading='lazy'/>
+                <img src={icon} className="w-9 mr-3" loading='lazy' alt={name} />
                 <span>{name}</span>
             </li>
         ))}
