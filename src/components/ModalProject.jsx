@@ -13,10 +13,10 @@ const ModalProject = ({ id, setSelectedId }) => {
 
   useEffect(() => {
     document.addEventListener('click', handleClickOutside, true);
-  }, [])
+  })
 
   const handleClickOutside = (e) => {
-    console.log(e.target)
+    // console.log(e.target)
     if(!cardRef?.current?.contains(e.target)){
         setSelectedId(null);
         // console.log('click outside')
