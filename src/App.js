@@ -1,24 +1,26 @@
 import './App.css';
-import { Navbar, Parallax, Projects, Skills, Footer, Input, Button, Textarea, GradientAnimation } from './components';
+import { motion } from 'framer-motion';
+import { Navbar, Parallax, Projects, Skills, Footer, Input, Button, Textarea, GradientAnimation, CodeEditor } from './components';
 import { projects } from './utils/constants';
 
-// const cardVariants = {
-//   offscreen: {
-//     y: 300
-//   },
-//   onscreen: {
-//     y: 5,
-//     rotate: -10,
-//     transition: {
-//       type: "spring",
-//       bounce: 0.4,
-//       duration: 0.8
-//     }
-//   }
-// };
+const textAnimate = {
+  hidden: {
+    y: 50, 
+    opacity: 0
+  },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      type: "spring",
+      bounce: 0.3,
+      duration: 1
+    }
+  }
+}
 
 const SubTitle = ({text}) => (
-  <div className="text-7xl font-extrabold mb-6">
+  <div className="text-7xl font-extrabold mb-9 text-center">
     <h2 className="bg-clip-text text-transparent bg-gradient-to-b from-[#08557f] to-transparent">
       { text }
     </h2>
@@ -35,19 +37,29 @@ function App() {
         <section className='flex justify-center items-center w-screen h-screen text-white'>
           <Parallax>
             <div className='flex flex-col md:flex-row items-center justify-center gap-7 text-center md:text-left'>
-              <div>
-                <span className='font-semibold text-xl'>¡Hola! Mi nombre es</span>
-                <h1 className="text-7xl font-bold mt-4 text-transparent bg-clip-text bg-gradient-to-l from-[#32c3ff] via-[#5b65ec] to-[#1adba2]">
+              <motion.div initial={"hidden"}
+                          whileInView={"visible"}
+                          viewport={{once: true, amount: 0.5}}
+                          transition={{
+                            delayChildren: 0.3,
+                            staggerChildren: 0.5
+                          }}>
+                <motion.span className='text-xl md:text-1xl lg:text-3xl xl:text-4xl font-semibold' variants={textAnimate}>
+                  ¡Hola! Mi nombre es
+                </motion.span>
+                <motion.h1 className="text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-bold mt-4 text-transparent bg-clip-text bg-gradient-to-b from-[#77c5ff] via-[#3c949a] to-[#caffef]" variants={textAnimate}>
                   Jose Silva
-                  <span className='block font-semibold mt-5 text-xl text-white'>Desarrollador Full-stack</span>
-                </h1>
-              </div>
+                </motion.h1>
+                <motion.span className='text-xl md:text-1xl lg:text-3xl xl:text-4xl block font-semibold mt-5 text-white' variants={textAnimate}>
+                  Desarrollador Full-stack
+                  </motion.span>
+              </motion.div>
               <div>
                 <img src='user-coding.png' className='w-4/5 mx-auto md:ml-auto md:mr-0' alt='User coding'/>
               </div>
             </div>
           </Parallax>
-          <div className="custom-shape-divider-bottom-1666745174">
+          <div className="shape-divider">
             <svg
               data-name="Layer 1"
               xmlns="http://www.w3.org/2000/svg"
@@ -61,47 +73,55 @@ function App() {
             </svg>
           </div>
         </section>
-        <section className="py-24" id='about'>
-          <div className='container px-3 mx-auto'>
-            <SubTitle text="Sobre mi" />
-            <Parallax>
-              <div className='flex flex-col md:flex-row gap-6 text-white'>
-                <div className='md:w-2/4 text-justify'>
-                  <p className='mb-4'>Soy desarrollador Full-Slack y me gusta estar en constante aprendizaje para refrescar o adquirir nuevos conocimientos que me ayuden en el desarrollo de proyectos.</p>
-                  <p>Siempre he tenido un gran interés por la programación, crear soluciones mediante el desarrollo de software que facilite las tareas en la vida cotidiana o en áreas laborales.</p>
-                  <div className=' mt-6'>
-                    <Button text='Descargar CV' href='./JoséSilva-CV.pdf' />
+        <div className='bg-[#0a1218] relative overflow-hidden w-screen'>
+          {/* <div className='absolute top-0 left-0 w-screen h-screen'>
+            <Blob className="absolute -top-1/4 -left-1/4 mix-blend-overlay w-1/2" />
+            <Blob className="absolute -bottom-1/4 -right-28 mix-blend-overlay w-1/2" />
+          </div> */}
+          <section className="relative pt-32 pb-24" id='about' >
+            <div className='container px-3 mx-auto' >
+              <SubTitle text="Sobre mi" />
+              <Parallax>
+                <div className='flex flex-col md:flex-row gap-6 text-white'>
+                  <div className='md:w-1/3 text-justify'>
+                    {/* <p className='mb-4'>Soy desarrollador Full-Slack y me gusta estar en constante aprendizaje para refrescar o adquirir nuevos conocimientos que me ayuden en el desarrollo de proyectos.</p>
+                    <p>Siempre he tenido un gran interés por la programación, crear soluciones mediante el desarrollo de software que facilite las tareas en la vida cotidiana o en áreas laborales.</p>
+                    <div className=' mt-6'>
+                      <Button text='Descargar CV' href='./JoséSilva-CV.pdf' />
+                    </div> */}
+                  </div>
+                  <div className='md:w-2/3'>
+                    {/* <Skills/> */}
+                    <CodeEditor />
                   </div>
                 </div>
-                <div className='md:w-2/4'>
-                  <Skills/>
-                </div>
-              </div>
-            </Parallax>
-          </div>
-        </section>
-        <section className="py-24" id='portfolio'>
-          <div className='container px-3 mx-auto'>
-            <Projects items={projects} />
-          </div>
-        </section>
-        <section className='py-24' id='contact'>
-          <div className='container px-3 mx-auto'>
-            <SubTitle text="Contacto" />
-            <form name="portfolio_contact" method='POST' data-netlify="true" className='max-w-md mx-auto'>
-              <Parallax>
-                <div className='flex flex-col md:flex-row  gap-3'>
-                  <Input label='Nombre' name="fullname" />
-                  <Input label='Correo electrónico' name="email" type='email' />
-                </div>
-                <Input label='Asunto' name="subject" />
-                <Textarea label='Escribe tu mensaje...' name="message" />
-                <div className="form-group" data-netlify-recaptcha="true"></div>
-                <Button text='Enviar' className='w-full' />
               </Parallax>
-            </form>
-          </div>
-        </section>
+            </div>
+          </section>
+          <section className="py-24" id='portfolio'>
+            <div className='container px-3 mx-auto'>
+              <SubTitle text="Portafolio" />
+              <Projects items={projects} />
+            </div>
+          </section>
+          <section className='py-24' id='contact'>
+            <div className='container px-3 mx-auto'>
+              <SubTitle text="Contacto" />
+              <form name="portfolio_contact" method='POST' data-netlify="true" className='max-w-md mx-auto'>
+                <Parallax>
+                  <div className='flex flex-col md:flex-row  gap-3'>
+                    <Input label='Nombre' name="fullname" />
+                    <Input label='Correo electrónico' name="email" type='email' />
+                  </div>
+                  <Input label='Asunto' name="subject" />
+                  <Textarea label='Escribe tu mensaje...' name="message" />
+                  <div className="form-group" data-netlify-recaptcha="true"></div>
+                  <Button text='Enviar' className='w-full' />
+                </Parallax>
+              </form>
+            </div>
+          </section>
+        </div>
       </main>
       <Footer />
     </div>

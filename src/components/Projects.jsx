@@ -8,11 +8,6 @@ const Projects = ({ items }) => {
 
   return (
     <>
-      <div className="text-7xl font-extrabold mb-6">
-        <h2 className="bg-clip-text text-transparent bg-gradient-to-b from-[#163971] to-transparent">
-          Portafolio
-        </h2>
-      </div>
       <Parallax>
         <motion.div className="flex flex-wrap -m-1 md:-m-2 py-4"
                     initial="hidden"
