@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { useEffect, useRef } from 'react';
-import { projects } from '../utils/constants';
+import { projects } from '../data/data';
 import { Button } from './';
 
 const ModalProject = ({ id, setSelectedId }) => {

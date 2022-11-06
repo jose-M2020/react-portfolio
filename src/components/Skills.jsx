@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { skills } from '../utils/constants'
+import { skills } from '../data/data'
 
 const setTabClass = (selectedSkill, typeSkill) => (
   `w-2/4 p-3 hover:bg-sky-800/60 duration-200 ${selectedSkill === typeSkill && 'bg-sky-800/95'}`

@@ -1,7 +1,7 @@
 import './App.css';
 import { motion } from 'framer-motion';
-import { Navbar, Parallax, Projects, Skills, Footer, Input, Button, Textarea, GradientAnimation, CodeEditor } from './components';
-import { projects } from './utils/constants';
+import { Navbar, Parallax, Projects, Skills, Footer, Input, Button, Textarea, GradientAnimation, CodeEditor, Blob } from './components';
+import { projects } from './data/data';
 
 const textAnimate = {
   hidden: {
@@ -36,26 +36,37 @@ function App() {
       <main>
         <section className='flex justify-center items-center w-screen h-screen text-white'>
           <Parallax>
-            <div className='flex flex-col md:flex-row items-center justify-center gap-7 text-center md:text-left'>
-              <motion.div initial={"hidden"}
+            <div className='px-8 max-w-screen-xl mx-auto flex flex-col md:flex-row gap-8 items-center md:text-left'>
+              <motion.div className=''
+                          initial={"hidden"}
                           whileInView={"visible"}
                           viewport={{once: true, amount: 0.5}}
                           transition={{
                             delayChildren: 0.3,
                             staggerChildren: 0.5
                           }}>
-                <motion.span className='text-xl md:text-1xl lg:text-3xl xl:text-4xl font-semibold' variants={textAnimate}>
+                <motion.span className='text-xl md:text-1xl lg:text-3xl font-semibold' variants={textAnimate}>
                   ¡Hola! Mi nombre es
                 </motion.span>
-                <motion.h1 className="text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-bold mt-4 text-transparent bg-clip-text bg-gradient-to-b from-[#77c5ff] via-[#3c949a] to-[#caffef]" variants={textAnimate}>
+                <motion.h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mt-4 text-transparent bg-clip-text bg-gradient-to-b from-[#77c5ff] via-[#3c949a] to-[#caffef]" variants={textAnimate}>
                   Jose Silva
                 </motion.h1>
-                <motion.span className='text-xl md:text-1xl lg:text-3xl xl:text-4xl block font-semibold mt-5 text-white' variants={textAnimate}>
+                <motion.span className='text-xl md:text-1xl lg:text-3xl block font-semibold mt-5 text-white' variants={textAnimate}>
                   Desarrollador Full-stack
                   </motion.span>
               </motion.div>
-              <div>
-                <img src='user-coding.png' className='w-4/5 mx-auto md:ml-auto md:mr-0' alt='User coding'/>
+              <div className='flex-grow relative min-h-screen
+                              md:scale-90  2xl:scale-100 origin-center-rigth'>
+                {/* md:scale-75  2xl:scale-100 origin-top-left */}
+                <div className=' z-30'>
+                  {/* <Blob /> */}
+                </div>
+                <div className='screen editor'></div>
+                <div className='screen mockup1'></div>
+                <div className='screen mockup2'></div>
+                <div className='z-10'>
+                  <img src="/images/programmer.svg" className='absolute top-1/2 -translate-y-1/2 right-0 w-72' alt="Programmer" />
+                </div>
               </div>
             </div>
           </Parallax>
@@ -89,6 +100,7 @@ function App() {
                     <div className=' mt-6'>
                       <Button text='Descargar CV' href='./JoséSilva-CV.pdf' />
                     </div> */}
+                    <img src="/images/programmer.svg" className='w-full h-full' style={{ transform: 'rotateY(180deg)' }} alt="programmer" />
                   </div>
                   <div className='md:w-2/3'>
                     {/* <Skills/> */}

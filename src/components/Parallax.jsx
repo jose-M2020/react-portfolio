@@ -35,7 +35,7 @@ const Parallax = ({ children, offset = 70 }) => {
   }
 
   return (
-    <motion.div ref={ref} style={{ y }}>
+    <motion.div className='w-full' ref={ref} style={{ y }}>
       {children}
     </motion.div>
   )

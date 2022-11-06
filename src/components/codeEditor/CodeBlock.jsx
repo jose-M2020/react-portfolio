@@ -1,29 +1,37 @@
 import React from 'react'
+import { getType } from '../../utils/utils'
 
-const CodeBlock = ({key, data}) => {
-    console.log(data)
+const CodeBlock = ({keyName, data, next}) => {
   return (
-    (typeof data === 'object' ?
-      <div className='group'>
-        {key && key + ': '} object
-        {Object.keys(data).map((k, index) => (
-            <div className='py-1 group-hover:border-l-2 group-hover:border-teal-400' key={index}>
-                <div className='ml-5'>
-                  <span className='text-[#a0dbfc]'>{k}: </span><span className='text-[#efb097]'>"{data[k]}"</span>
-                </div>
+    <div className='group'>
+      {getType(data) === 'object' ?
+        <>
+          <span className='border-b-2 border-transparent group-hover:border-[#1adba2] duration-200'>{keyName && keyName + ': '}</span><span className='text-[#1adba2]'>{'{'}</span>
+          {Object.keys(data).map((key, index, {length}) => (
+              <div className='py-1 border-l border-transparent group-hover:border-[#1adba2] duration-200' key={index}>
+                  <div className='ml-5'>
+                    <span className='text-[#a0dbfc]'>{key}: </span><span className='text-[#efb097]'>"{data[key]}"</span>
+                    { !(length - 1 === index) && <span className='text-[#1adba2]'>{','}</span>}
+                  </div>
+              </div>
+          ))}
+          <span className='text-[#1adba2]'>{next ? '},' : '}'}</span>
+        </>
+      :
+        <>
+          <span className='border-b-2 border-transparent group-hover:border-[#1adba2] duration-200'>{keyName && keyName + ': '}</span><span className='text-[#1adba2]'>{'['}</span>
+          {data.map((item, index, {length}) => (
+            <div className='py-1 border-l border-transparent group-hover:border-[#1adba2] duration-200' key={index}>
+              <div className='ml-5'>
+                <span className='text-[#efb097]'>"{item?.name}"</span>
+                { !(length - 1 === index) && <span className='text-[#1adba2]'>{','}</span>}
+              </div>
             </div>
-        ))}
-        object
-      </div>
-    :
-      <>
-        {key}: [
-        {data.map((k, index) => (
-        <span key={index}>{k}</span>
-        ))}
-        ]
-      </>
-    )
+          ))}
+          <span className='text-[#1adba2]'>{next ? '],' : ']'}</span>
+        </>
+      }
+    </div>
   )
 }
 

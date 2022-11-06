@@ -37,6 +37,9 @@ main > div::after {
     pointer-events: none;
 }
 
+/* CUSTOM SCROLL 
+------------------------------------------------*/
+
 ::-webkit-scrollbar {
   width: 9px;
   background-color: rgb(0, 37, 50);
@@ -52,6 +55,47 @@ main > div::after {
 ::-webkit-scrollbar-thumb:hover {
     background-color: rgb(129, 157, 215, .8);
 }
+
+/* HERO
+------------------------------------------------*/
+.screen{
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  filter: blur(-1px);
+  position: absolute;
+  transform: perspective(900px) rotateY(147deg) skewY(349deg) translateY(-50%);
+  transform-origin: top center;
+}
+
+.screen.editor{
+  background: url(../public/images/hero/editor-screen.svg), rgb(21 66 100 / 51%);
+  top: 50%;
+  left: 5%;
+  width: 469px;
+  height: 261px;
+  z-index: 50;
+}
+
+.screen.mockup1{
+  background: url(../public/images/hero/mockup1-screen.svg), rgb(93 152 195 / 51%);
+  top: 30%;
+  left: 0%;
+  width: 300px;
+  height: 182px;
+  z-index: 30;
+}
+
+.screen.mockup2{
+  background: url(../public/images/hero/mockup2-screen.svg), rgb(93 152 195 / 51%);
+  top: 38%;
+  left: 50%;
+  width: 300px;
+  height: 182px;
+  z-index: 30;
+}
+
+/* SHAPE DIVIDER
+------------------------------------------------*/
 
 .shape-divider {
     position: absolute;
@@ -75,29 +119,31 @@ main > div::after {
     fill: #0a1218;
 }
 
+
+
 #gradient-canvas {
-    width:100vw;
-    height:100vh;
+  width:100vw;
+  height:100vh;
     /* --gradient-color-1: #024a50; 
     --gradient-color-2: #092d2e; 
     --gradient-color-3: #054c64;  
     --gradient-color-4: #0b427c; */
-    --gradient-color-1: #043D5D; 
+  --gradient-color-1: #043D5D; 
   --gradient-color-2: #032E46;
   --gradient-color-3: #007765;
   --gradient-color-4: #0F595E;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: -1;
-  }
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
   
 
 /* .root{
     transform: perspective(1300px) rotateY(49deg) translateY(38px) scale(0.5);
     width: 100vw;
     height: 100vh;
-    overflow-x: hidden;
+    overflow*x: hidden;
     overflow-y: auto;
     background: #14274e;
     transition: 0.3s;

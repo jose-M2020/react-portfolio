@@ -25,13 +25,12 @@ const Editor = ({data}) => {
   // iterate(data?.data);
 
   const typeEditors = {
-    'perfil.json': <ProfileEditor data={data.data} />,
-    'habilidades.json': <SkillsEditor data={data.data} />,
+    'perfil.json': <ProfileEditor data={data?.data} />,
+    'habilidades.json': <SkillsEditor data={data?.data} />,
   }
   
   return (
-    <div className='h-[60vh] overflow-y-auto overflow-x-hidden'>
-      {/* <pre>{JSON.stringify(data?.data, null, 2)}</pre> */}
+    <div className='p-4 h-[60vh] overflow-y-auto overflow-x-hidden'>
       { typeEditors[data?.tabName] }
     </div>
   )
