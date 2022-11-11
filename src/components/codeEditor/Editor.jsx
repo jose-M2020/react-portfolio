@@ -30,7 +30,7 @@ const Editor = ({data}) => {
   }
   
   return (
-    <div className='p-4 h-[60vh] overflow-y-auto overflow-x-hidden'>
+    <div className='p-4 h-[25rem] overflow-y-auto overflow-x-hidden'>
       { typeEditors[data?.tabName] }
     </div>
   )

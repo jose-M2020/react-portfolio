@@ -37,6 +37,12 @@ main > div::after {
     pointer-events: none;
 }
 
+section:not(:first-child) {
+  background-color: #0a1218;
+  position: relative;
+  width: 100vw;
+}
+
 /* CUSTOM SCROLL 
 ------------------------------------------------*/
 
@@ -70,7 +76,7 @@ main > div::after {
 .screen.editor{
   background: url(../public/images/hero/editor-screen.svg), rgb(21 66 100 / 51%);
   top: 50%;
-  left: 5%;
+  left: 17%;
   width: 469px;
   height: 261px;
   z-index: 50;
@@ -82,16 +88,16 @@ main > div::after {
   left: 0%;
   width: 300px;
   height: 182px;
-  z-index: 30;
+  /* z-index: 30; */
 }
 
 .screen.mockup2{
   background: url(../public/images/hero/mockup2-screen.svg), rgb(93 152 195 / 51%);
-  top: 38%;
-  left: 50%;
+  top: 40%;
+  right: -5%;
   width: 300px;
   height: 182px;
-  z-index: 30;
+  /* z-index: 30; */
 }
 
 /* SHAPE DIVIDER

@@ -64,7 +64,6 @@ const Navbar = () => {
   }
   useEffect(() => {
     scrollY.onChange(() => updateState());
-    
   });
   
   return (

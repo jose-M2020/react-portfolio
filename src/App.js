@@ -19,6 +19,37 @@ const textAnimate = {
   }
 }
 
+const imageAnimate = {
+  hidden: {
+    opacity: 0
+  },
+  visible: {
+    opacity: 1,
+    transition: {
+      type: "spring",
+      bounce: 0.3,
+      duration: 2
+    }
+  }
+}
+
+const screenAnimate = {
+  hidden: {
+    opacity: 0,
+    // scale: .5,
+  },
+  visible: {
+    opacity: 1,
+
+    // scale: 1,
+    transition: {
+      type: "spring",
+      bounce: 0.3,
+      duration: 2
+    }
+  }
+}
+
 const SubTitle = ({text}) => (
   <div className="text-7xl font-extrabold mb-9 text-center">
     <h2 className="bg-clip-text text-transparent bg-gradient-to-b from-[#08557f] to-transparent">
@@ -37,7 +68,7 @@ function App() {
         <section className='flex justify-center items-center w-screen h-screen text-white'>
           <Parallax>
             <div className='px-8 max-w-screen-xl mx-auto flex flex-col md:flex-row gap-8 items-center md:text-left'>
-              <motion.div className=''
+              <motion.div className='text-center md:text-justify'
                           initial={"hidden"}
                           whileInView={"visible"}
                           viewport={{once: true, amount: 0.5}}
@@ -53,21 +84,29 @@ function App() {
                 </motion.h1>
                 <motion.span className='text-xl md:text-1xl lg:text-3xl block font-semibold mt-5 text-white' variants={textAnimate}>
                   Desarrollador Full-stack
-                  </motion.span>
+                </motion.span>
+                <motion.div className='mt-9' variants={textAnimate}>
+                  <Button text='Descargar CV' href='./JoséSilva-CV.pdf' />
+                </motion.div>
               </motion.div>
-              <div className='flex-grow relative min-h-screen
-                              md:scale-90  2xl:scale-100 origin-center-rigth'>
-                {/* md:scale-75  2xl:scale-100 origin-top-left */}
-                <div className=' z-30'>
-                  {/* <Blob /> */}
-                </div>
-                <div className='screen editor'></div>
-                <div className='screen mockup1'></div>
-                <div className='screen mockup2'></div>
-                <div className='z-10'>
-                  <img src="/images/programmer.svg" className='absolute top-1/2 -translate-y-1/2 right-0 w-72' alt="Programmer" />
-                </div>
-              </div>
+              <motion.div className='hidden md:block flex-grow absolute md:relative min-h-screen
+                                     md:scale-90  2xl:scale-105 origin-center-rigth'
+                          initial={"hidden"}
+                          whileInView={"visible"}
+                          viewport={{once: true, amount: 0.5}}
+                          transition={{
+                            delayChildren: 0.3,
+                            staggerChildren: 0.5
+                          }}>
+                <motion.div variants={imageAnimate}>
+                  <div className='screen editor'></div>
+                  <img src="/images/programmer.svg" className='absolute top-1/2 left-[60%] -translate-x-1/2 -translate-y-1/2 w-72' alt="Programmer" />
+                </motion.div>
+                <motion.div variants={screenAnimate}>
+                  <div className='screen mockup1'></div>
+                  <div className='screen mockup2'></div>
+                </motion.div>
+              </motion.div>
             </div>
           </Parallax>
           <div className="shape-divider">
@@ -84,56 +123,54 @@ function App() {
             </svg>
           </div>
         </section>
-        <div className='bg-[#0a1218] relative overflow-hidden w-screen'>
-          {/* <div className='absolute top-0 left-0 w-screen h-screen'>
-            <Blob className="absolute -top-1/4 -left-1/4 mix-blend-overlay w-1/2" />
-            <Blob className="absolute -bottom-1/4 -right-28 mix-blend-overlay w-1/2" />
-          </div> */}
-          <section className="relative pt-32 pb-24" id='about' >
-            <div className='container px-3 mx-auto' >
-              <SubTitle text="Sobre mi" />
-              <Parallax>
-                <div className='flex flex-col md:flex-row gap-6 text-white'>
-                  <div className='md:w-1/3 text-justify'>
-                    {/* <p className='mb-4'>Soy desarrollador Full-Slack y me gusta estar en constante aprendizaje para refrescar o adquirir nuevos conocimientos que me ayuden en el desarrollo de proyectos.</p>
-                    <p>Siempre he tenido un gran interés por la programación, crear soluciones mediante el desarrollo de software que facilite las tareas en la vida cotidiana o en áreas laborales.</p>
-                    <div className=' mt-6'>
-                      <Button text='Descargar CV' href='./JoséSilva-CV.pdf' />
-                    </div> */}
-                    <img src="/images/programmer.svg" className='w-full h-full' style={{ transform: 'rotateY(180deg)' }} alt="programmer" />
-                  </div>
-                  <div className='md:w-2/3'>
-                    {/* <Skills/> */}
-                    <CodeEditor />
-                  </div>
+        {/* <div className='absolute top-0 left-0 w-screen h-screen'>
+          <Blob className="absolute -top-1/4 -left-1/4 mix-blend-overlay w-1/2" />
+          <Blob className="absolute -bottom-1/4 -right-28 mix-blend-overlay w-1/2" />
+        </div> */}
+        <section className="relative pt-32 pb-24" id='about' >
+          <div className='container px-3 mx-auto' >
+            <SubTitle text="Sobre mi" />
+            <Parallax>
+              <div className='flex flex-col md:flex-row justify-center items-center gap-6 text-white'>
+                <div className='hidden md:block'>
+                  {/* <p className='mb-4'>Soy desarrollador Full-Slack y me gusta estar en constante aprendizaje para refrescar o adquirir nuevos conocimientos que me ayuden en el desarrollo de proyectos.</p>
+                  <p>Siempre he tenido un gran interés por la programación, crear soluciones mediante el desarrollo de software que facilite las tareas en la vida cotidiana o en áreas laborales.</p>
+                  <div className=' mt-6'>
+                    <Button text='Descargar CV' href='./JoséSilva-CV.pdf' />
+                  </div> */}
+                  <img src="/images/programmer-blob.svg" className='w-full max-w-[28rem]' style={{ transform: 'rotateY(180deg)' }} alt="programmer" />
                 </div>
+                <div className='w-full md:w-1/2'>
+                  {/* <Skills/> */}
+                  <CodeEditor />
+                </div>
+              </div>
+            </Parallax>
+          </div>
+        </section>
+        <section className="py-24" id='portfolio'>
+          <div className='container px-3 mx-auto'>
+            <SubTitle text="Portafolio" />
+            <Projects items={projects} />
+          </div>
+        </section>
+        <section className='py-24' id='contact'>
+          <div className='container px-3 mx-auto'>
+            <SubTitle text="Contacto" />
+            <form name="portfolio_contact" method='POST' data-netlify="true" className='max-w-md mx-auto'>
+              <Parallax>
+                <div className='flex flex-col md:flex-row  gap-3'>
+                  <Input label='Nombre' name="fullname" />
+                  <Input label='Correo electrónico' name="email" type='email' />
+                </div>
+                <Input label='Asunto' name="subject" />
+                <Textarea label='Escribe tu mensaje...' name="message" />
+                <div className="form-group" data-netlify-recaptcha="true"></div>
+                <Button text='Enviar' className='w-full' />
               </Parallax>
-            </div>
-          </section>
-          <section className="py-24" id='portfolio'>
-            <div className='container px-3 mx-auto'>
-              <SubTitle text="Portafolio" />
-              <Projects items={projects} />
-            </div>
-          </section>
-          <section className='py-24' id='contact'>
-            <div className='container px-3 mx-auto'>
-              <SubTitle text="Contacto" />
-              <form name="portfolio_contact" method='POST' data-netlify="true" className='max-w-md mx-auto'>
-                <Parallax>
-                  <div className='flex flex-col md:flex-row  gap-3'>
-                    <Input label='Nombre' name="fullname" />
-                    <Input label='Correo electrónico' name="email" type='email' />
-                  </div>
-                  <Input label='Asunto' name="subject" />
-                  <Textarea label='Escribe tu mensaje...' name="message" />
-                  <div className="form-group" data-netlify-recaptcha="true"></div>
-                  <Button text='Enviar' className='w-full' />
-                </Parallax>
-              </form>
-            </div>
-          </section>
-        </div>
+            </form>
+          </div>
+        </section>
       </main>
       <Footer />
     </div>

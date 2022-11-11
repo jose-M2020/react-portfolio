@@ -3,9 +3,13 @@ export const projects = [
     {
         id: 1,
         title: 'Web Chat',
-        description: 'Sitio web de chat en linea en tiempo real',
+        description: 'Aplicación web que permite a los usuarios comunicarse mediante mensajes de texto en tiempo real, con integración de service worker y API de GIPHY. Emite estados de conexión, escritura y notificaciones push.',
+        tools: {
+            front: ['HTML', 'CSS', 'JavaScript', 'Socket.IO'],
+            back: ['NodeJS', 'Socket.IO', 'MongoDB']
+        },
         img: [
-            'projects/webchat.png'
+            'images/projects/webchat.png'
         ],
         url: {
             github: 'https://github.com/jose-M2020/Chat_NodeJS-SocketIO',
@@ -15,9 +19,13 @@ export const projects = [
     {
         id: 2,
         title: 'Repositorio escolar',
-        description: 'Sistema para el almacenamiento y difusion de proyectos realizados en la universidad',
+        description: 'Sistema desarrollado para el almacenamiento y difusión de proyectos realizados en universidades académicas. Permite crear repositorios públicos o privados con acceso a miembros autorizados o administrador.',
+        tools: {
+            front: ['HTML', 'CSS', 'Bootstrap'],
+            back: ['Laravel', 'MySQL', 'Amazon S3']
+        },
         img: [
-            'projects/repositorio-escolar.png'
+            'images/projects/repositorio-escolar.png'
         ],
         url: {
             github: 'https://github.com/jose-M2020/repositorio-UTCGG',
@@ -27,9 +35,13 @@ export const projects = [
     {
         id: 3,
         title: 'YouPlay',
-        description: 'Clone de youtube',
+        description: 'Sitio web para la reproducción de videos mediante el consumo de la API de YouTube, los videos pueden estar agrupados por categorías, canal o búsqueda realizada.',
+        tools: {
+            front: ['React', 'CSS', 'Tailwind'],
+            back: ['YouTube API']
+        },
         img: [
-            'projects/you-play.png'
+            'images/projects/you-play.png'
         ],
         url: {
             github: 'https://github.com/jose-M2020/you-play',
