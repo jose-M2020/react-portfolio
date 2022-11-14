@@ -37,7 +37,7 @@ export const projects = [
         title: 'YouPlay',
         description: 'Sitio web para la reproducción de videos mediante el consumo de la API de YouTube, los videos pueden estar agrupados por categorías, canal o búsqueda realizada.',
         tools: {
-            front: ['React', 'CSS', 'Tailwind'],
+            front: ['React', 'Tailwind'],
             back: ['YouTube API']
         },
         img: [

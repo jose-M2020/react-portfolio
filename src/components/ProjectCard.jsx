@@ -8,7 +8,6 @@ const ProjectCard = ({ data, currentId, setCurrentId }) => {
     id, 
     title, 
     description, 
-    tools,
     tools: {front, back} 
   } = data;
   
@@ -19,11 +18,10 @@ const ProjectCard = ({ data, currentId, setCurrentId }) => {
       
       if((positionY < 60 && positionY > 0)){
         setCurrentId(id);
-        // console.log(currentId);
       } 
-      if((positionY > 60 && positionY < 0)){
-        setCurrentId(null);
-      }
+      // if((positionY > 60 && positionY < 0)){
+      //   setCurrentId(null);
+      // }
     });
   });
 
@@ -47,7 +45,7 @@ const ProjectCard = ({ data, currentId, setCurrentId }) => {
 
 
     <div className='h-full w-full p-4 rounded-2xl shadow-lg shadow-[#1adba2]/30 text-justify' ref={projectRef}>      
-        <h3 className='text-4xl font-bold mb-6'>{ title }</h3>
+        <motion.h3 className='text-4xl font-bold mb-6' layoutId={`card-title-${id}`}>{ title }</motion.h3>
         <span>{ description }</span>
         <div className='mt-4'>
           {front && (

@@ -69,35 +69,33 @@ section:not(:first-child) {
   backdrop-filter: blur(10px);
   filter: blur(-1px);
   position: absolute;
-  transform: perspective(900px) rotateY(147deg) skewY(349deg) translateY(-50%);
+  width: 435px;
+  height: 260px;
+  /* transform: perspective(900px) rotateY(147deg) skewY(349deg) translateY(-50%); */
   transform-origin: top center;
 }
 
 .screen.editor{
   background: url(../public/images/hero/editor-screen.svg), rgb(21 66 100 / 51%);
   top: 50%;
-  left: 17%;
-  width: 469px;
-  height: 261px;
+  left: 50%;
   z-index: 50;
 }
 
 .screen.mockup1{
   background: url(../public/images/hero/mockup1-screen.svg), rgb(93 152 195 / 51%);
-  top: 30%;
-  left: 0%;
-  width: 300px;
-  height: 182px;
-  /* z-index: 30; */
+  /* top: 30%;
+  left: 0%; */
+  top: 50%;
+  left: 50%;
 }
 
 .screen.mockup2{
   background: url(../public/images/hero/mockup2-screen.svg), rgb(93 152 195 / 51%);
-  top: 40%;
-  right: -5%;
-  width: 300px;
-  height: 182px;
-  /* z-index: 30; */
+  /* top: 40%;
+  right: -5%; */
+  top: 50%;
+  left: 50%;
 }
 
 /* SHAPE DIVIDER

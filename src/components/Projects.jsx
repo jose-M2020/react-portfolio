@@ -1,10 +1,40 @@
-import { motion, AnimatePresence } from 'framer-motion'
-import { useEffect, useState } from 'react'
+import { motion } from 'framer-motion'
+import { useState } from 'react'
 import { projects } from '../data/data';
-import { Parallax, ProjectCard, ModalProject } from './'
+import { ProjectCard } from './'
+
+const sentenceAnimation = {
+  hidden: { opacity: 1 },
+  visible: {
+    opacity: 1,
+    transition: {
+      // delay: .0,
+      staggerChildren: .03
+    }
+  }
+}
+
+const letterAnimation = {
+  hidden: { opacity: 0, y: 50 },
+  visible: {
+    opacity: 1,
+    y: 0,
+  }
+}
+
+const screenAnimation = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: .8
+    }
+  }
+}
 
 const Projects = ({ items }) => {
   const [currentId, setCurrentId] = useState(null);
+  // const [showModal, setShowModal] = useState(false);
   const currentProject = projects.find(item => item.id === currentId);
 
   return (
@@ -24,13 +54,13 @@ const Projects = ({ items }) => {
           ))}
         </motion.div> */}
 
-        <div className='flex flex-col md:flex-row justify-center gap-10'>
+        <div className='flex flex-col md:flex-row justify-between gap-10'>
           <div className='w-full md:w-1/2 text-white order-2 md:order-1'>
             {/* <ProjectCard data={projects[0]} currentId={currentId} setCurrentId={setCurrentId} /> */}
             {items.map((item, index, {length}) => (
               <div className='flex gap-3' key={index}>
                 { (length - 1 === index) ? (
-                  <div className='text-[#1adba2] mb-[33rem] md:mb-[12.5rem]'>
+                  <div className='text-[#1adba2] mb-[33rem] md:mb-[20rem]'>
                     <i className="fa-regular fa-object-group text-4xl mt-4"></i>
                   </div>
                 ) : (
@@ -44,13 +74,45 @@ const Projects = ({ items }) => {
             ))}
           </div>
           <div className='order-1 sticky top-2/3 right-0 md:top-1/3 h-full'>
-            <div className='md:transform-x'>
-              <div className='w-[22rem] h-56 bg-cyan-700 shadow-2xl rounded-lg'></div>
-              <div className='w-[22rem] h-56 backdrop-blur-sm bg-sky-800/30 shadow-2xl shadow-gray-700 absolute -top-8 -left-8 rounded-lg'>
+            <div className=''>
+              {/* <img src="images/laptop-V2.svg" className='-z-10 w-[29rem]' alt="laptop" /> */}
+              <div className='p-4 backdrop-blur-sm bg-sky-800/30 shadow-2xl shadow-gray-700 rounded-lg 
+                              md:scale-75 lg:scale-100 md:origin-right' 
+                   key={currentId}>
                 {currentId ? (
                   <>
-                    <a href={currentProject?.url?.demo} className='block text-white bg-teal-800/60 p-2 mb-2 rounded-lg' target='_blank' rel='noreferrer'>{currentProject?.url?.demo}</a>
-                    <img src={currentProject?.img} className="w-full p-2 rounded-lg" alt="" />
+                    <motion.a href={currentProject?.url?.demo} 
+                              className='block text-white p-2 mb-5 shadow-sm shadow-sky-300 rounded-lg 
+                                         hover:bg-sky-800/70 duration-700 
+                                         md:text-xl lg:text-base' 
+                              target='_blank' rel='noreferrer'
+                              variants={sentenceAnimation}
+                              initial='hidden'
+                              animate='visible'
+                              >
+                      <i className="fa-solid fa-globe mr-1 text-sm"></i>
+                      {(currentProject?.url?.demo).split('').map((char, index) => (
+                        <motion.span key={index} variants={letterAnimation}>{char}</motion.span>
+                      ))}
+                    </motion.a>
+                    {/* <a href={currentProject?.url?.demo} className='block text-white bg-teal-800/60 p-2 mb-2 rounded-lg' target='_blank' rel='noreferrer'>{currentProject?.url?.demo}</a> */}
+                    {/* <motion.img src={currentProject?.img} alt="project mockup"
+                                className="w-full p-2 rounded-lg" 
+                                variants={screenAnimation}
+                                initial='hidden'
+                                animate='visible'
+                                // onClick={() => currentId && setShowModal(true)}
+                                // layoutId='card-image-container'
+                    /> */}
+                    <motion.div className="p-2 mb-4 rounded-lg w-[500px] h-[261px] shadow-sm" 
+                                variants={screenAnimation}
+                                initial='hidden'
+                                animate='visible'
+                                style={{background: `url(${currentProject?.img}), rgb(21 66 100 / 51%)`}}
+                                // onClick={() => currentId && setShowModal(true)}
+                                // layoutId='card-image-container'
+                    >
+                    </motion.div>
                   </>
                 ) : (
                   <div className="animate-pulse">
@@ -66,8 +128,8 @@ const Projects = ({ items }) => {
       {/* </Parallax> */}
 
       {/* <AnimatePresence>
-      {selectedId && (
-        <ModalProject id={selectedId} selectedId={selectedId} setSelectedId={setSelectedId} />
+      {showModal && (
+        <ModalProject id={currentId} showModal={showModal} setShowModal={setShowModal} />
       )}
       </AnimatePresence> */}
     </>

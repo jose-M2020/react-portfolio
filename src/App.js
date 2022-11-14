@@ -1,6 +1,6 @@
 import './App.css';
 import { motion } from 'framer-motion';
-import { Navbar, Parallax, Projects, Skills, Footer, Input, Button, Textarea, GradientAnimation, CodeEditor, Blob } from './components';
+import { Navbar, Parallax, Projects, Footer, Input, Button, Textarea, GradientAnimation, CodeEditor } from './components';
 import { projects } from './data/data';
 
 const textAnimate = {
@@ -19,9 +19,18 @@ const textAnimate = {
   }
 }
 
-const imageAnimate = {
+const baseTranform = {
+  x: '-50%',
+  y: '-50%',
+  opacity: 0,
+  rotateY: 147,
+  skewY: 349,
+  transformPerspective: 900, 
+}
+
+const editorAnimate = {
   hidden: {
-    opacity: 0
+    ...baseTranform
   },
   visible: {
     opacity: 1,
@@ -33,19 +42,38 @@ const imageAnimate = {
   }
 }
 
-const screenAnimate = {
+const mockup1Animate = {
   hidden: {
-    opacity: 0,
-    // scale: .5,
+    ...baseTranform
   },
   visible: {
     opacity: 1,
-
-    // scale: 1,
+    top: '40%',
+    left: '28%',
+    scale: .7,
     transition: {
       type: "spring",
       bounce: 0.3,
-      duration: 2
+      duration: 2,
+      delay: 1
+    }
+  }
+}
+
+const mockup2Animate = {
+  hidden: {
+    ...baseTranform
+  },
+  visible: {
+    opacity: 1,
+    top: '45%',
+    left: '76%',
+    scale: .7,
+    transition: {
+      type: "spring",
+      bounce: 0.3,
+      duration: 2,
+      delay: 1
     }
   }
 }
@@ -67,7 +95,7 @@ function App() {
       <main>
         <section className='flex justify-center items-center w-screen h-screen text-white'>
           <Parallax>
-            <div className='px-8 max-w-screen-xl mx-auto flex flex-col md:flex-row gap-8 items-center md:text-left'>
+            <div className='px-6 max-w-screen-xl mx-auto flex flex-col md:flex-row gap-8 items-center md:text-left'>
               <motion.div className='text-center md:text-justify'
                           initial={"hidden"}
                           whileInView={"visible"}
@@ -90,22 +118,15 @@ function App() {
                 </motion.div>
               </motion.div>
               <motion.div className='hidden md:block flex-grow absolute md:relative min-h-screen
-                                     md:scale-90  2xl:scale-105 origin-center-rigth'
+                                     sm:scale-75 lg:scale-90 xl:scale-100 origin-center-rigth'
                           initial={"hidden"}
                           whileInView={"visible"}
                           viewport={{once: true, amount: 0.5}}
-                          transition={{
-                            delayChildren: 0.3,
-                            staggerChildren: 0.5
-                          }}>
-                <motion.div variants={imageAnimate}>
-                  <div className='screen editor'></div>
-                  <img src="/images/programmer.svg" className='absolute top-1/2 left-[60%] -translate-x-1/2 -translate-y-1/2 w-72' alt="Programmer" />
-                </motion.div>
-                <motion.div variants={screenAnimate}>
-                  <div className='screen mockup1'></div>
-                  <div className='screen mockup2'></div>
-                </motion.div>
+                          >
+                  <motion.div className='screen editor' variants={editorAnimate}></motion.div>
+                  <motion.img src="/images/programmer.svg" className='absolute top-1/2 left-[60%] -translate-x-1/2 -translate-y-1/2 w-72' alt="Programmer" />
+                  <motion.div className='screen mockup1' variants={mockup1Animate}></motion.div>
+                  <motion.div className='screen mockup2' variants={mockup2Animate}></motion.div>           
               </motion.div>
             </div>
           </Parallax>
@@ -128,7 +149,7 @@ function App() {
           <Blob className="absolute -bottom-1/4 -right-28 mix-blend-overlay w-1/2" />
         </div> */}
         <section className="relative pt-32 pb-24" id='about' >
-          <div className='container px-3 mx-auto' >
+          <div className='px-6 max-w-screen-xl mx-auto' >
             <SubTitle text="Sobre mi" />
             <Parallax>
               <div className='flex flex-col md:flex-row justify-center items-center gap-6 text-white'>
@@ -149,13 +170,13 @@ function App() {
           </div>
         </section>
         <section className="py-24" id='portfolio'>
-          <div className='container px-3 mx-auto'>
+          <div className='px-6 max-w-screen-xl mx-auto'>
             <SubTitle text="Portafolio" />
             <Projects items={projects} />
           </div>
         </section>
         <section className='py-24' id='contact'>
-          <div className='container px-3 mx-auto'>
+          <div className='px-6 max-w-screen-xl mx-auto'>
             <SubTitle text="Contacto" />
             <form name="portfolio_contact" method='POST' data-netlify="true" className='max-w-md mx-auto'>
               <Parallax>

@@ -3,7 +3,7 @@ import { useEffect, useRef } from 'react';
 import { projects } from '../data/data';
 import { Button } from './';
 
-const ModalProject = ({ id, setSelectedId }) => {
+const ModalProject = ({ id, setShowModal }) => {
   const { 
     img, 
     title, 
@@ -18,7 +18,7 @@ const ModalProject = ({ id, setSelectedId }) => {
   const handleClickOutside = (e) => {
     // console.log(e.target)
     if(!cardRef?.current?.contains(e.target)){
-        setSelectedId(null);
+        setShowModal(null);
         // console.log('click outside')
     }
   }
@@ -35,9 +35,9 @@ const ModalProject = ({ id, setSelectedId }) => {
       <div className='flex justify-center items-center min-w-sm h-full scroll-auto'>
         <div className='bg-black/60 p-6 rounded-xl' ref={cardRef}>
           <div>
-            <h5 className='text-3xl mb-4 font-semibold'>{ title }</h5>
+            <motion.h5 className='text-3xl mb-4 font-semibold' layoutId={`card-title-${id}`}>{ title }</motion.h5>
           </div>
-          <motion.div className='mb-4' layoutId={`card-image-container-${id}`}>
+          <motion.div className='mb-4' layoutId='card-image-container'>
             <img alt="Project" className="block object-cover object-center w-full h-full rounded-lg"
                  src={img} />
             {/* <motion.button onClick={() => setSelectedId(null)} /> */}
