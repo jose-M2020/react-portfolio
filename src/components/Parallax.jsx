@@ -1,13 +1,13 @@
-import { useState, useRef, useLayoutEffect } from 'react';
+import { useState, useRef, useLayoutEffect, useEffect } from 'react';
 import { motion, useScroll, useTransform, useSpring, useReducedMotion } from 'framer-motion';
 
-const Parallax = ({ children, offset = 70 }) => {
+const Parallax = ({ children, offset = 110, className='' }) => {
   const prefersReducedMotion = useReducedMotion();
   const [elementTop, setElementTop] = useState(0);
   const [clientHeight, setClientHeight] = useState(0);
   const ref = useRef(null);
 
-  const { scrollY } = useScroll();
+  const { scrollY } = useScroll({target: ref});
 
   const initial = elementTop - clientHeight;
   const final = elementTop + offset;
@@ -17,6 +17,14 @@ const Parallax = ({ children, offset = 70 }) => {
   // const scale = useTransform(scrollY, [initial, final], [0.8, 1]);
   const yRange = useTransform(scrollY, [initial, final], [offset, -offset]);
   const y = useSpring(yRange, { stiffness: 400, damping: 90 });
+  
+  console.log(scrollY.current)
+
+  useEffect(() => {
+    return scrollY.onChange((latest) => {
+      console.log("Page scroll: ", scrollY.current)
+    })
+  })
 
   useLayoutEffect(() => {
     const element = ref.current
@@ -28,14 +36,14 @@ const Parallax = ({ children, offset = 70 }) => {
     window.addEventListener('resize', onResize)
     return () => window.removeEventListener('resize', onResize)
   }, [ref])
-  
+
   // Don't parallax if the user has "reduced motion" enabled
   if (prefersReducedMotion) {
     return <>{children}</>
   }
 
   return (
-    <motion.div className='w-full' ref={ref} style={{ y }}>
+    <motion.div className={`w-full ${className}`} ref={ref} style={{ y }}>
       {children}
     </motion.div>
   )

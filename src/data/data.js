@@ -13,7 +13,7 @@ export const projects = [
         ],
         url: {
             github: 'https://github.com/jose-M2020/Chat_NodeJS-SocketIO',
-            demo: 'https://webchat-node-socket.herokuapp.com'
+            demo: 'https://meetme.up.railway.app'
         }
     },
     {
