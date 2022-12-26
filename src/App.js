@@ -1,6 +1,6 @@
 import './App.css';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Navbar, Parallax, Projects, Footer, Input, Button, Textarea, GradientAnimation, CodeEditor } from './components';
+import { Navbar, Parallax, Projects, Footer, Input, Button, Textarea, CodeEditor } from './components';
 import { projects } from './data/data';
 import { useRef } from 'react';
 
