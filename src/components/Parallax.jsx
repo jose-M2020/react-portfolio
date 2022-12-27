@@ -17,14 +17,6 @@ const Parallax = ({ children, offset = 110, className='' }) => {
   // const scale = useTransform(scrollY, [initial, final], [0.8, 1]);
   const yRange = useTransform(scrollY, [initial, final], [offset, -offset]);
   const y = useSpring(yRange, { stiffness: 400, damping: 90 });
-  
-  console.log(scrollY.current)
-
-  useEffect(() => {
-    return scrollY.onChange((latest) => {
-      console.log("Page scroll: ", scrollY.current)
-    })
-  })
 
   useLayoutEffect(() => {
     const element = ref.current

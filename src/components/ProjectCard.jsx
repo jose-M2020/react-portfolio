@@ -3,23 +3,26 @@ import { useEffect, useRef } from 'react'
 
 const ProjectCard = ({ data, currentId, setCurrentId }) => {
   const { scrollY } = useScroll();
-  const projectRef = useRef();
+  const projectRef = useRef(null);
   const { 
     id, 
     title, 
     description, 
     tools: {front, back} 
   } = data;
-  
+
+  // TODO: Fix the scroll
+
   useEffect(() => {
     scrollY.onChange(() => {
       const {top} = projectRef.current.getBoundingClientRect();
-      const positionY = Math.round((top/window.innerHeight)*100)
-      
-      if((positionY < 60 && positionY > 0)){
+      const positionY = Math.round((top/window.innerHeight)*100);
+        
+      if((positionY < 60 && positionY > 0) && id !== currentId) {
         setCurrentId(id);
       } 
       // if((positionY > 60 && positionY < 0)){
+      //   setCurrentItem(0);
       //   setCurrentId(null);
       // }
     });

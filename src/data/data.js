@@ -8,13 +8,15 @@ export const projects = [
             front: ['HTML', 'CSS', 'JavaScript', 'Socket.IO'],
             back: ['NodeJS', 'Socket.IO', 'MongoDB']
         },
-        img: [
-            'images/projects/webchat.png'
-        ],
-        url: {
-            github: 'https://github.com/jose-M2020/Chat_NodeJS-SocketIO',
-            demo: 'https://meetme.up.railway.app'
-        }
+        items: [{
+            img: [
+                'images/projects/webchat.png'
+            ],
+            url: {
+                github: 'https://github.com/jose-M2020/Chat_NodeJS-SocketIO',
+                demo: 'https://meetme.up.railway.app'
+            }
+        }],
     },
     {
         id: 2,
@@ -24,29 +26,64 @@ export const projects = [
             front: ['HTML', 'CSS', 'Bootstrap'],
             back: ['Laravel', 'MySQL', 'Amazon S3']
         },
-        img: [
-            'images/projects/repositorio-escolar.png'
-        ],
-        url: {
-            github: 'https://github.com/jose-M2020/repositorio-UTCGG',
-            demo: 'https://repositorio-utcgg.herokuapp.com/'
-        }
+        items: [{
+            img: [
+                'images/projects/repositorio-escolar.png'
+            ],
+            url: {
+                github: 'https://github.com/jose-M2020/repositorio-UTCGG',
+                demo: 'https://repositorio-utcgg.herokuapp.com'
+            }
+        }],
     },
     {
         id: 3,
+        title: 'Sistema ecommerce',
+        description: 'Sistema para la compra y venta de ropa en internet, el cual permite realizar pagos con tarjeta o PayPal.',
+        tools: {
+            front: ['Angular', 'CSS', 'Bootstrap'],
+            back: ['NodeJS', 'Socket.IO', 'MongoDB']
+        },
+        items: [
+            {
+                name: 'Tienda',
+                img: [
+                    'images/projects/ecommerce-tienda.png'
+                ],
+                url: {
+                    github: 'https://github.com/jose-M2020/repositorio-UTCGG',
+                    demo: 'https://shoper-store.netlify.app'
+                }
+            },
+            {
+                name: 'Admin',
+                img: [
+                    'images/projects/ecommerce-admin.png'
+                ],
+                url: {
+                    github: 'https://github.com/jose-M2020/repositorio-UTCGG',
+                    demo: 'https://controlstore.netlify.app'
+                }
+            }
+        ],
+    },
+    {
+        id: 4,
         title: 'YouPlay',
         description: 'Sitio web para la reproducción de videos mediante el consumo de la API de YouTube, los videos pueden estar agrupados por categorías, canal o búsqueda realizada.',
         tools: {
             front: ['React', 'Tailwind'],
             back: ['YouTube API']
         },
-        img: [
-            'images/projects/you-play.png'
-        ],
-        url: {
-            github: 'https://github.com/jose-M2020/you-play',
-            demo: 'https://you-play.netlify.app/'
-        }
+        items: [{
+            img: [
+                'images/projects/you-play.png'
+            ],
+            url: {
+                github: 'https://github.com/jose-M2020/you-play',
+                demo: 'https://you-play.netlify.app'
+            }
+        }],
     }
 ]
 

@@ -214,8 +214,10 @@ function App() {
       </main>
       <Footer />
       <div>
-        <motion.div className='bg-bubble top' animate={{x:'100%'}} transition={{ ease: 'easeInOut', duration: 6, repeat: Infinity, repeatType: "reverse", repeatDelay: 1 }}></motion.div>
-        <motion.di className='bg-bubble middle' animate={{left: '0%'}} transition={{ ease: 'easeInOut', duration: 6, repeat: Infinity, repeatType: "reverse", repeatDelay: 1 }}></motion.di>
+        {/* <motion.div className='bg-bubble top' animate={{x:'180%'}} transition={{ ease: 'easeInOut', duration: 6, repeat: Infinity, repeatType: "reverse", repeatDelay: 1 }}></motion.div>
+        <motion.di className='bg-bubble middle' animate={{left: '0%'}} transition={{ ease: 'easeInOut', duration: 6, repeat: Infinity, repeatType: "reverse", repeatDelay: 1 }}></motion.di> */}
+        <motion.div className='bg-bubble top'></motion.div>
+        <motion.di className='bg-bubble middle'></motion.di>
       </div>
     </div>
   );

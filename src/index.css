@@ -50,7 +50,7 @@ main > div {
   transform: translate(-50%, -50%);
   width: 600px;
   height: 600px;
-  background-image: radial-gradient(hsl(163deg 78% 46%) 30%, hsl(228deg 100% 53%));
+  background-image: radial-gradient(hsl(175deg 100% 86%) 30%, hsl(228deg 100% 53%));
   border-radius: 50%;
   filter: blur(120px);
   mix-blend-mode: overlay;
@@ -58,7 +58,7 @@ main > div {
 }
 
 .bg-bubble.top{
-  top: -40%;
+  top: 0%;
   left: 0%;
 }
 

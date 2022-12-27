@@ -34,6 +34,7 @@ const screenAnimation = {
 
 const Projects = ({ items }) => {
   const [currentId, setCurrentId] = useState(null);
+  const [currentItem, setCurrentItem] = useState(0);
   // const [showModal, setShowModal] = useState(false);
   const currentProject = projects.find(item => item.id === currentId);
 
@@ -70,7 +71,7 @@ const Projects = ({ items }) => {
                       <div className='h-[500px] w-[1px] bg-[#1adba2]'></div>
                     </div>
                   )}
-                  <ProjectCard data={item} currentId={currentId} setCurrentId={setCurrentId} key={index} />
+                  <ProjectCard key={index} data={item} currentId={currentId} setCurrentId={setCurrentId} />
                 </div>
               ))}
             </Parallax>
@@ -83,7 +84,18 @@ const Projects = ({ items }) => {
                    key={currentId}>
                 {currentId ? (
                   <>
-                    <motion.a href={currentProject?.url?.demo} 
+                    <div className='flex gap-1 text-white mb-3'>
+                      {currentProject.items.length > 1 && (
+                          currentProject.items.map((item, index) => (
+                              <button key={index} className={`px-2 py-1 bg-teal-200/30 rounded-lg 
+                                               hover:bg-teal-200/10 hover:shadow-2xl duration-150
+                                               ${currentItem === index ? 'bg-teal-200/10 border-b border-b-teal-400' : ''}`}
+                                      onClick={() => setCurrentItem(index)}
+                              >{item.name}</button>
+                          ))
+                      )}
+                    </div>
+                    <motion.a href={(currentProject.items[currentItem]?.url?.demo) ?? (currentProject.items[0]?.url?.demo)} 
                               className='block text-white p-2 mb-5 shadow-sm shadow-sky-300 rounded-lg 
                                          hover:bg-sky-800/70 duration-700 
                                          md:text-xl lg:text-base' 
@@ -93,7 +105,7 @@ const Projects = ({ items }) => {
                               animate='visible'
                               >
                       <i className="fa-solid fa-globe mr-1 text-sm"></i>
-                      {(currentProject?.url?.demo).split('').map((char, index) => (
+                      {((currentProject.items[currentItem]?.url?.demo) ?? (currentProject.items[0]?.url?.demo)).split('').map((char, index) => (
                         <motion.span key={index} variants={letterAnimation}>{char}</motion.span>
                       ))}
                     </motion.a>
@@ -110,7 +122,7 @@ const Projects = ({ items }) => {
                                 variants={screenAnimation}
                                 initial='hidden'
                                 animate='visible'
-                                style={{background: `url(${currentProject?.img}), rgb(21 66 100 / 51%)`}}
+                                style={{background: `url(${(currentProject.items[currentItem]?.img) ?? (currentProject.items[0]?.img)}), rgb(21 66 100 / 51%)`}}
                                 // onClick={() => currentId && setShowModal(true)}
                                 // layoutId='card-image-container'
                     >
