@@ -32,7 +32,7 @@ export const projects = [
             ],
             url: {
                 github: 'https://github.com/jose-M2020/repositorio-UTCGG',
-                demo: 'https://repositorio-utcgg.herokuapp.com'
+                demo: 'https://repositorio.up.railway.app'
             }
         }],
     },
@@ -51,7 +51,7 @@ export const projects = [
                     'images/projects/ecommerce-tienda.png'
                 ],
                 url: {
-                    github: 'https://github.com/jose-M2020/repositorio-UTCGG',
+                    github: 'https://github.com/jose-M2020/ecommerceTutorial-tienda',
                     demo: 'https://shoper-store.netlify.app'
                 }
             },
@@ -61,7 +61,7 @@ export const projects = [
                     'images/projects/ecommerce-admin.png'
                 ],
                 url: {
-                    github: 'https://github.com/jose-M2020/repositorio-UTCGG',
+                    github: 'https://github.com/jose-M2020/ecommerceTutorial-admin',
                     demo: 'https://controlstore.netlify.app'
                 }
             }
