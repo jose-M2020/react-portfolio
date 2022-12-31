@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { projects } from '../data/data';
+import { useIntersection } from '../utils/useIntersection';
 import { ProjectCard, Parallax } from './'
 
 const sentenceAnimation = {
@@ -32,11 +33,38 @@ const screenAnimation = {
   }
 }
 
+const hideAnimation = {
+  hidden: { 
+    opacity: 0,
+    y: '100%', 
+    transition: {
+      duration: .8,
+      opacity: {
+        duration: .3,
+      }
+    }
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: .4,
+      opacity: {
+        duration: .8,
+      }
+    }
+  }
+}
+
 const Projects = ({ items }) => {
   const [currentId, setCurrentId] = useState(null);
   const [currentItem, setCurrentItem] = useState(0);
   // const [showModal, setShowModal] = useState(false);
   const currentProject = projects.find(item => item.id === currentId);
+
+  const refProjects = useRef();
+
+  const inViewport = useIntersection(refProjects, '-200px');
 
   return (
     <>
@@ -56,13 +84,13 @@ const Projects = ({ items }) => {
         </motion.div> */}
 
         <div className='flex flex-col md:flex-row justify-between gap-10'>
-          <div className='w-full md:w-1/2 text-white order-2 md:order-1'>
+          <div ref={refProjects} className='w-full md:w-1/2 text-white order-2 md:order-1'>
             <Parallax>
               {/* <ProjectCard data={projects[0]} currentId={currentId} setCurrentId={setCurrentId} /> */}
               {items.map((item, index, {length}) => (
                 <div className='flex gap-3' key={index}>
                   { (length - 1 === index) ? (
-                    <div className='text-[#1adba2] mb-[33rem] md:mb-[14.5rem]'>
+                    <div className='text-[#1adba2] md:mb-[14.5rem]'>
                       <i className="fa-regular fa-object-group text-4xl mt-4"></i>
                     </div>
                   ) : (
@@ -76,11 +104,13 @@ const Projects = ({ items }) => {
               ))}
             </Parallax>
           </div>
-          <div className='order-1 sticky top-2/3 right-0 md:top-[20%] h-full'>
-            <div className=''>
+          <motion.div className='order-1 fixed bottom-0 left-50
+                          md:sticky md:right-0 md:top-[20%] md:h-full'
+                      animate={inViewport ? 'visible' : 'hidden'}
+                      variants={hideAnimation}>
               {/* <img src="images/laptop-V2.svg" className='-z-10 w-[29rem]' alt="laptop" /> */}
               <div className='p-4 backdrop-blur-sm bg-sky-800/30 shadow-2xl shadow-gray-700 rounded-lg 
-                              md:scale-75 lg:scale-100 md:origin-right' 
+                              scale-[.8] sm:scale-[1] md:scale-[.74] lg:scale-100 md:origin-right' 
                    key={currentId}>
                 {currentId ? (
                   <>
@@ -130,13 +160,12 @@ const Projects = ({ items }) => {
                   </>
                 ) : (
                   <div className="animate-pulse">
-                    <div className='w-full p-2 mb-2 bg-[#15426482] rounded-lg'></div>
-                    <div className='p-2 rounded-lg w-[500px] h-[261px] shadow-sm bg-[#15426482]'></div>
+                    <div className='w-full p-2 mb-2 bg-[#30a6ff82] rounded-lg'></div>
+                    <div className='p-2 rounded-lg w-[500px] h-[261px] shadow-sm bg-[#30a6ff82]'></div>
                   </div>
                 )}
               </div>
-            </div>
-          </div>
+          </motion.div>
         </div>
 
       {/* </Parallax> */}
