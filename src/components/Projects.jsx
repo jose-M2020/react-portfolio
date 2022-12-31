@@ -64,7 +64,7 @@ const Projects = ({ items }) => {
 
   const refProjects = useRef();
 
-  const inViewport = useIntersection(refProjects, '-200px');
+  const inViewport = useIntersection(refProjects, '-100px');
 
   return (
     <>
@@ -104,13 +104,14 @@ const Projects = ({ items }) => {
               ))}
             </Parallax>
           </div>
-          <motion.div className='order-1 fixed bottom-0 left-50
+          <motion.div className='order-1 fixed bottom-0 left-50 opacity-0
                           md:sticky md:right-0 md:top-[20%] md:h-full'
                       animate={inViewport ? 'visible' : 'hidden'}
                       variants={hideAnimation}>
               {/* <img src="images/laptop-V2.svg" className='-z-10 w-[29rem]' alt="laptop" /> */}
-              <div className='p-4 backdrop-blur-sm bg-sky-800/30 shadow-2xl shadow-gray-700 rounded-lg 
-                              scale-[.8] sm:scale-[1] md:scale-[.74] lg:scale-100 md:origin-right' 
+              <div className='p-4 backdrop-blur-md bg-sky-800/40 shadow-2xl shadow-gray-700 rounded-lg 
+                              scale-[.65] sm:scale-[1] md:scale-[.74] lg:scale-100 origin-bottom-left md:origin-right
+                              text-2xl sm:text-base' 
                    key={currentId}>
                 {currentId ? (
                   <>
