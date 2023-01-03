@@ -46,7 +46,7 @@ const navbar = {
 const Navbar = () => {
   const { scrollY } = useScroll();
   const [isOpen, toggleOpen] = useCycle(false, true);
-  const [hidden, setHidden] = useState(true);
+  const [hidden, setHidden] = useState(false);
   const [transparent, setTransparent] = useState(true);
 
   const updateState = () => {
