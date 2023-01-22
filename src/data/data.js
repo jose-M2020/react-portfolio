@@ -14,7 +14,7 @@ export const projects = [
             ],
             url: {
                 github: 'https://github.com/jose-M2020/Chat_NodeJS-SocketIO',
-                demo: 'https://meetme.up.railway.app'
+                demo: 'https://meetme.onrender.com'
             }
         }],
     },
