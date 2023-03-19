@@ -32,7 +32,7 @@ export const projects = [
             ],
             url: {
                 github: 'https://github.com/jose-M2020/repositorio-UTCGG',
-                demo: 'https://repositorio.up.railway.app'
+                demo: 'https://repositorio-uz3fd.ondigitalocean.app'
             }
         }],
     },
