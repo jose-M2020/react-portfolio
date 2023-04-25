@@ -124,7 +124,7 @@ export const projects = [
             ],
             url: {
                 github: 'https://github.com/jose-M2020/you-play',
-                demo: 'https://demo.com'
+                // demo: 'https://demo.com'
             }
         }],
     }
