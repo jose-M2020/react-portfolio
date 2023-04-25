@@ -11,6 +11,7 @@ const ProjectCard = ({
   const { scrollY } = useScroll();
   const projectRef = useRef(null);
   const [lineHeight, setLineHeight] = useState()
+  const [showMore, setShowMore] = useState(false)
   const { 
     id, 
     title, 
@@ -73,8 +74,17 @@ const ProjectCard = ({
       {/* CARD */}
       <div className='h-full w-full p-4 rounded-2xl shadow-lg shadow-[#1adba2]/30 text-justify' ref={projectRef}>      
           <motion.h3 className='text-4xl font-bold mb-6 text-[1.8rem]' layoutId={`card-title-${id}`}>{ title }</motion.h3>
-          <p>
-            { description.map((item, index) => (
+          <p
+            style={{
+              ...(!showMore && {
+                display: '-webkit-box',
+                overflow: 'hidden',
+                WebkitBoxOrient: 'vertical',
+                WebkitLineClamp: 3,
+              })
+            }}
+          >
+            { description.map((item, index, {length}) => (
               <>
                 { item }
                 <br/>
@@ -82,6 +92,12 @@ const ProjectCard = ({
               </>
             )) }
           </p>
+          <span
+            className='text-[#1adba2] cursor-pointer'
+            onClick={() => setShowMore(!showMore)}
+          >
+            {!showMore ? 'Ver más' : 'Ver menos'}
+          </span>
           <div className='mt-4'>
             {front && (
               <div className='flex mb-2'>
