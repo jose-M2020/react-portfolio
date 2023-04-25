@@ -1,9 +1,16 @@
 import { motion, useScroll } from 'framer-motion';
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
-const ProjectCard = ({ data, currentId, setCurrentId }) => {
+const ProjectCard = ({ 
+  index,
+  length,
+  data,
+  currentId,
+  setCurrentId
+}) => {
   const { scrollY } = useScroll();
   const projectRef = useRef(null);
+  const [lineHeight, setLineHeight] = useState()
   const { 
     id, 
     title, 
@@ -26,7 +33,11 @@ const ProjectCard = ({ data, currentId, setCurrentId }) => {
       //   setCurrentId(null);
       // }
     });
-  });
+  })
+
+  useEffect(() => {
+    setLineHeight(projectRef?.current?.clientHeight + 150)
+  }, [projectRef?.current?.clientHeight])
 
   return (
     // <div className="w-full p-1 md:p-2 overflow-hidden
@@ -46,33 +57,56 @@ const ProjectCard = ({ data, currentId, setCurrentId }) => {
     //   </motion.div> 
     // </div>
 
-
-    <div className='h-full w-full p-4 rounded-2xl shadow-lg shadow-[#1adba2]/30 text-justify' ref={projectRef}>      
-        <motion.h3 className='text-4xl font-bold mb-6' layoutId={`card-title-${id}`}>{ title }</motion.h3>
-        <span>{ description }</span>
-        <div className='mt-4'>
-          {front && (
-            <div className='flex mb-2'>
-              <span className='font-bold mr-1'>Front-end: </span>
-              <ul className='flex flex-wrap gap-1'>
-                {front.map((item, i, {length}) => (
-                  <li key={i}>{(length - 1 === i) ? item : (item + ',')}</li>
-                ))}
-              </ul>
-            </div>
-          )}
-          {back && (
-            <div className='flex'>
-              <span className='font-bold mr-1'>Back-end: </span>
-              <ul className='flex gap-2'>
-                {back.map((item, i, {length}) => (
-                  <li key={i}>{(length - 1 === i) ? item : (item + ',')}</li>
-                ))}
-              </ul>
-            </div>
-          )}
+    <div className='flex gap-3'>
+      { (length - 1 === index) ? (
+        <div className='text-[#1adba2] md:mb-[14.5rem]'>
+          <i className="fa-regular fa-object-group text-4xl mt-4"></i>
         </div>
+      ) : (
+        projectRef && (
+          <div className='text-[#1adba2] flex flex-col items-center'>
+            <i className="fa-regular fa-object-group text-4xl my-4"></i>
+            <div className={`w-[1px] bg-[#1adba2]`} style={{ height: `${lineHeight}px` }}></div>
+          </div>
+        )
+      )}
+      {/* CARD */}
+      <div className='h-full w-full p-4 rounded-2xl shadow-lg shadow-[#1adba2]/30 text-justify' ref={projectRef}>      
+          <motion.h3 className='text-4xl font-bold mb-6 text-[1.8rem]' layoutId={`card-title-${id}`}>{ title }</motion.h3>
+          <p>
+            { description.map((item, index) => (
+              <>
+                { item }
+                <br/>
+                <br/>
+              </>
+            )) }
+          </p>
+          <div className='mt-4'>
+            {front && (
+              <div className='flex mb-2'>
+                <span className='font-bold mr-1'>Front-end: </span>
+                <ul className='flex flex-wrap gap-1'>
+                  {front.map((item, i, {length}) => (
+                    <li key={i}>{(length - 1 === i) ? item : (item + ',')}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+            {back && (
+              <div className='flex'>
+                <span className='font-bold mr-1'>Back-end: </span>
+                <ul className='flex gap-2'>
+                  {back.map((item, i, {length}) => (
+                    <li key={i}>{(length - 1 === i) ? item : (item + ',')}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+      </div>
     </div>
+
   )
 }
 

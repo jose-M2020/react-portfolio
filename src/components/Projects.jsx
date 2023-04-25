@@ -88,19 +88,13 @@ const Projects = ({ items }) => {
             <Parallax>
               {/* <ProjectCard data={projects[0]} currentId={currentId} setCurrentId={setCurrentId} /> */}
               {items.map((item, index, {length}) => (
-                <div className='flex gap-3' key={index}>
-                  { (length - 1 === index) ? (
-                    <div className='text-[#1adba2] md:mb-[14.5rem]'>
-                      <i className="fa-regular fa-object-group text-4xl mt-4"></i>
-                    </div>
-                  ) : (
-                    <div className='text-[#1adba2] flex flex-col items-center'>
-                      <i className="fa-regular fa-object-group text-4xl my-4"></i>
-                      <div className='h-[500px] w-[1px] bg-[#1adba2]'></div>
-                    </div>
-                  )}
-                  <ProjectCard key={index} data={item} currentId={currentId} setCurrentId={setCurrentId} />
-                </div>
+                <ProjectCard
+                  key={index}
+                  index={index}
+                  length={length}
+                  data={item}
+                  currentId={currentId}
+                  setCurrentId={setCurrentId} />
               ))}
             </Parallax>
           </div>
@@ -113,6 +107,15 @@ const Projects = ({ items }) => {
                               scale-[.65] sm:scale-[1] md:scale-[.74] lg:scale-100 origin-bottom-left md:origin-right
                               text-2xl sm:text-base' 
                    key={currentId}>
+                {currentProject?.status === 'in progress' && (
+                  <div
+                    className="bg-blue-500 text-white p-1 rounded text-sm
+                    absolute h-14-left-4 -top-4 right-2"
+                  >
+                    <i className="fa-solid fa-gear fa-spin fa-spin-reverse"></i>
+                    <span className='ml-1'>En proceso</span>
+                  </div>
+                )}
                 {currentId ? (
                   <>
                     <div className='flex gap-1 text-white mb-3'>
