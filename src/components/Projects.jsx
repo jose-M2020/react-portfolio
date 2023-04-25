@@ -139,9 +139,11 @@ const Projects = ({ items }) => {
                               animate='visible'
                               >
                       <i className="fa-solid fa-globe mr-1 text-sm"></i>
-                      {((currentProject.items[currentItem]?.url?.demo) ?? (currentProject.items[0]?.url?.demo)).split('').map((char, index) => (
-                        <motion.span key={index} variants={letterAnimation}>{char}</motion.span>
-                      ))}
+                      {((currentProject.items[currentItem]?.url?.demo) ?? (
+                        (currentProject.items[0]?.url?.demo))?.split('').map((char, index) => (
+                          <motion.span key={index} variants={letterAnimation}>{char}</motion.span>
+                        ))
+                      )}
                     </motion.a>
                     {/* <a href={currentProject?.url?.demo} className='block text-white bg-teal-800/60 p-2 mb-2 rounded-lg' target='_blank' rel='noreferrer'>{currentProject?.url?.demo}</a> */}
                     {/* <motion.img src={currentProject?.img} alt="project mockup"

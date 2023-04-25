@@ -1,5 +1,5 @@
+import { Fragment, useEffect, useRef, useState } from 'react'
 import { motion, useScroll } from 'framer-motion';
-import { useEffect, useRef, useState } from 'react'
 
 const ProjectCard = ({ 
   index,
@@ -9,7 +9,7 @@ const ProjectCard = ({
   setCurrentId
 }) => {
   const { scrollY } = useScroll();
-  const projectRef = useRef(null);
+  const projectRef = useRef();
   const [lineHeight, setLineHeight] = useState()
   const [showMore, setShowMore] = useState(false)
   const { 
@@ -37,8 +37,8 @@ const ProjectCard = ({
   })
 
   useEffect(() => {
-    setLineHeight(projectRef?.current?.clientHeight + 150)
-  }, [projectRef?.current?.clientHeight])
+    setLineHeight(projectRef?.current?.clientHeight + 180)
+  }, [showMore])
 
   return (
     // <div className="w-full p-1 md:p-2 overflow-hidden
@@ -57,24 +57,27 @@ const ProjectCard = ({
     //          loading='lazy' />
     //   </motion.div> 
     // </div>
-
     <div className='flex gap-3'>
+      {/* LEFT SIDE */}
       { (length - 1 === index) ? (
         <div className='text-[#1adba2] md:mb-[14.5rem]'>
           <i className="fa-regular fa-object-group text-4xl mt-4"></i>
         </div>
       ) : (
-        projectRef && (
-          <div className='text-[#1adba2] flex flex-col items-center'>
-            <i className="fa-regular fa-object-group text-4xl my-4"></i>
-            <div className={`w-[1px] bg-[#1adba2]`} style={{ height: `${lineHeight}px` }}></div>
-          </div>
-        )
+        <div className='text-[#1adba2] flex flex-col items-center'>
+          <i className="fa-regular fa-object-group text-4xl my-4"></i>
+          <div className={`w-[1px] bg-[#1adba2]`} style={{ height: `${lineHeight}px` }}></div>
+        </div>
       )}
-      {/* CARD */}
-      <div className='h-full w-full p-4 rounded-2xl shadow-lg shadow-[#1adba2]/30 text-justify' ref={projectRef}>      
-          <motion.h3 className='text-4xl font-bold mb-6 text-[1.8rem]' layoutId={`card-title-${id}`}>{ title }</motion.h3>
-          <p
+      {/* RIGHT SIDE - CARD */}
+      <div className='h-full w-full p-4 rounded-2xl shadow-lg shadow-[#1adba2]/30 text-justify' ref={projectRef}>
+          <motion.h3
+            className='text-4xl font-bold mb-6 text-[1.8rem]'
+            layoutId={`card-title-${id}`}
+          >
+            { title }
+          </motion.h3>
+          <div
             style={{
               ...(!showMore && {
                 display: '-webkit-box',
@@ -85,18 +88,21 @@ const ProjectCard = ({
             }}
           >
             { description.map((item, index, {length}) => (
-              <>
-                { item }
-                <br/>
-                <br/>
-              </>
+              <Fragment key={index}>
+                <p>
+                  { item }
+                </p>
+                { (length - 1) !== index && (
+                  <br/>
+                )}
+              </Fragment>
             )) }
-          </p>
+          </div>
           <span
             className='text-[#1adba2] cursor-pointer'
             onClick={() => setShowMore(!showMore)}
           >
-            {!showMore ? 'Ver más' : 'Ver menos'}
+            {!showMore ? 'Leer más' : 'Leer menos'}
           </span>
           <div className='mt-4'>
             {front && (
