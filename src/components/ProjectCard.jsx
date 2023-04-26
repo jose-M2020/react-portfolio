@@ -57,15 +57,15 @@ const ProjectCard = ({
     //          loading='lazy' />
     //   </motion.div> 
     // </div>
-    <div className='flex gap-3'>
+    <div className='flex gap-5'>
       {/* LEFT SIDE */}
       { (length - 1 === index) ? (
         <div className='text-[#1adba2] md:mb-[14.5rem]'>
-          <i className="fa-regular fa-object-group text-4xl mt-4"></i>
+          <div className='my-7 w-3 h-3 bg-[#1adba2] rounded-full outline outline-[10px] outline-[#1adba2]/20' />
         </div>
       ) : (
         <div className='text-[#1adba2] flex flex-col items-center'>
-          <i className="fa-regular fa-object-group text-4xl my-4"></i>
+          <div className='my-7 w-3 h-3 bg-[#1adba2] rounded-full outline outline-[10px] outline-[#1adba2]/20' />
           <div className={`w-[1px] bg-[#1adba2]`} style={{ height: `${lineHeight}px` }}></div>
         </div>
       )}
