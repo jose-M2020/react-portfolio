@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { Navbar, Parallax, Projects, Footer, Input, Button, Textarea, CodeEditor } from './components';
 import { projects } from './data/data';
 import { useRef } from 'react';
+import Sidebar from './components/Sidebar';
 
 const textAnimate = {
   hidden: {
@@ -100,11 +101,16 @@ function App() {
   let opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
   
   return (
-    <div>
-      <Navbar />
+    <div
+      className='flex'
+    >
+      <div className='grow bg-[#2c446b]'>
+        <Sidebar />
+      </div>
+      {/* <Navbar /> */}
       {/* <Blobs /> */}
-      <main>
-        <section className='relative flex justify-center items-center w-screen h-screen text-white' ref={ref}>
+      <main className='relative'>
+        <section className='relative flex justify-center items-center h-screen text-white' ref={ref}>
           <motion.div className='absolute inset-x-0 top-0 w-screen h-screen hero-bg -z-10' style={{ y, opacity }}>
             <img src="/hero.jpg" alt="" className='object-cover w-full h-full' />
           </motion.div>
@@ -211,14 +217,14 @@ function App() {
             </div>
           </section>
         </div>
+        <Footer />
+        <div>
+          {/* <motion.div className='bg-bubble top' animate={{x:'180%'}} transition={{ ease: 'easeInOut', duration: 6, repeat: Infinity, repeatType: "reverse", repeatDelay: 1 }}></motion.div>
+          <motion.di className='bg-bubble middle' animate={{left: '0%'}} transition={{ ease: 'easeInOut', duration: 6, repeat: Infinity, repeatType: "reverse", repeatDelay: 1 }}></motion.di> */}
+          <motion.div className='bg-bubble top'></motion.div>
+          <motion.div className='bg-bubble middle'></motion.div>
+        </div>
       </main>
-      <Footer />
-      <div>
-        {/* <motion.div className='bg-bubble top' animate={{x:'180%'}} transition={{ ease: 'easeInOut', duration: 6, repeat: Infinity, repeatType: "reverse", repeatDelay: 1 }}></motion.div>
-        <motion.di className='bg-bubble middle' animate={{left: '0%'}} transition={{ ease: 'easeInOut', duration: 6, repeat: Infinity, repeatType: "reverse", repeatDelay: 1 }}></motion.di> */}
-        <motion.div className='bg-bubble top'></motion.div>
-        <motion.div className='bg-bubble middle'></motion.div>
-      </div>
     </div>
   );
 }

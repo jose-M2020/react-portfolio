@@ -193,3 +193,21 @@ export const socialMedia = [
         icon: 'fa-brands fa-codepen'
     },
 ]
+
+export const links = [
+  {
+      name: 'ACERCA',
+      url: '/#about',
+      icon: 'fa-solid fa-user'
+  },
+  {
+      name: 'PORTAFOLIO',
+      url: '/#portfolio',
+      icon: 'fa-regular fa-folder-open'
+  },
+  {
+      name: 'CONTACTO',
+      url: '/#contact',
+      icon: 'fa-solid fa-envelope'
+  }
+];
