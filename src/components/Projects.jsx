@@ -113,7 +113,7 @@ const Projects = ({ items }) => {
                     absolute h-14-left-4 -top-4 right-2"
                   >
                     <i className="fa-solid fa-gear fa-spin fa-spin-reverse"></i>
-                    <span className='ml-1'>En proceso</span>
+                    <span className='ml-1'>En construcción</span>
                   </div>
                 )}
                 {currentId ? (
