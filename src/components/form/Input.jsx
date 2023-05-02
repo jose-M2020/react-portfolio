@@ -1,19 +1,22 @@
 import React from 'react'
 
-const Input = ({ label, name, type = "text", className, ...rest }) => {
+const Input = ({ label, type = "text", className, ...props }) => {
   return (
     <div className='relative z-0 w-full mb-8'>
-      <input id={name}
-             type={type}
-             placeholder=' '
-             className="block px-2.5 pb-2.5 pt-4 w-full 
-                        text-sm text-gray-900 bg-transparent 
-                        rounded-lg
-                        shadow-sm shadow-teal-300/60
-                        dark:text-white dark:border-teal-300 invalid:border-red-500
-                        focus:shadow-teal-300 focus:outline-none focus:ring-0 peer"
-             {...rest} required />
-      <label htmlFor={name} 
+      <input
+        id={ props.name }
+        type={type}
+        placeholder=' '
+        className="block px-2.5 pb-2.5 pt-4 w-full 
+        text-sm text-gray-900 bg-transparent 
+        rounded-lg
+        shadow-sm shadow-teal-300/60
+        dark:text-white dark:border-teal-300 invalid:border-red-500
+        focus:shadow-teal-300 focus:outline-none focus:ring-0 peer"
+        required
+        {...props}
+      />
+      <label htmlFor={ props.name } 
              className="text-sm text-gray-500
                         absolute top-4 left-2.5
                         duration-300
