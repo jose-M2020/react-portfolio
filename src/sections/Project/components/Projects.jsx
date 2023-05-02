@@ -1,8 +1,9 @@
 import { motion } from 'framer-motion'
 import { useRef, useState } from 'react'
-import { projects } from '../data/data';
-import { useIntersection } from '../utils/useIntersection';
-import { ProjectCard, Parallax } from './'
+import { useIntersection } from '../../../utils/useIntersection';
+import { Parallax } from '../../../components'
+import ProjectCard from './ProjectCard';
+import { projects } from '../../../data/data';
 
 const sentenceAnimation = {
   hidden: { opacity: 1 },
@@ -56,7 +57,7 @@ const hideAnimation = {
   }
 }
 
-const Projects = ({ items }) => {
+const Projects = () => {
   const [currentId, setCurrentId] = useState(null);
   const [currentItem, setCurrentItem] = useState(0);
   // const [showModal, setShowModal] = useState(false);
@@ -87,7 +88,7 @@ const Projects = ({ items }) => {
           <div ref={refProjects} className='w-full md:w-1/2 text-white order-2 md:order-1'>
             <Parallax>
               {/* <ProjectCard data={projects[0]} currentId={currentId} setCurrentId={setCurrentId} /> */}
-              {items.map((item, index, {length}) => (
+              {projects.map((item, index, {length}) => (
                 <ProjectCard
                   key={index}
                   index={index}

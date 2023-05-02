@@ -14,7 +14,9 @@ body {
     background-size: cover;
     background-attachment: fixed; */
     background: #152735;
-    overflow-x: hidden;    
+    overflow-x: hidden;
+    font-weight: 500;
+    line-height: 1.7;
 }
 
 body:has(.modal--active) {

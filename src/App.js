@@ -1,8 +1,9 @@
 import './App.css';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Navbar, Parallax, Projects, Footer, Input, Button, Textarea, CodeEditor } from './components';
-import { projects } from './data/data';
+import { Navbar, Parallax, Footer, Button, CodeEditor, SubTitle } from './components';
 import { useRef } from 'react';
+import Contact from './sections/Contact';
+import Project from './sections/Project';
 
 const textAnimate = {
   hidden: {
@@ -81,14 +82,6 @@ const mockup2Animate = {
     }
   }
 }
-
-const SubTitle = ({text}) => (
-  <div className="text-[4rem] md:text-[6rem] font-extrabold mb-9 text-center">
-    <h2 className="bg-clip-text text-transparent bg-gradient-to-b from-[#08557f] to-transparent">
-      { text }
-    </h2>
-  </div>
-);
 
 function App() {
   let ref = useRef(null);
@@ -187,29 +180,8 @@ function App() {
               </Parallax>
             </div>
           </section>
-          <section className="py-24" id='portfolio'>
-            <div className='px-6 max-w-screen-xl mx-auto'>
-              <SubTitle text="Portafolio" />
-              <Projects items={projects} />
-            </div>
-          </section>
-          <section className='py-24' id='contact'>
-            <div className='px-6 max-w-screen-xl mx-auto'>
-              <SubTitle text="Contacto" />
-              <form name="portfolio_contact" method='POST' data-netlify="true" className='max-w-md mx-auto'>
-                <Parallax>
-                  <div className='flex flex-col md:flex-row  gap-3'>
-                    <Input label='Nombre' name="fullname" />
-                    <Input label='Correo electrónico' name="email" type='email' />
-                  </div>
-                  <Input label='Asunto' name="subject" />
-                  <Textarea label='Escribe tu mensaje...' name="message" />
-                  <div className="form-group" data-netlify-recaptcha="true"></div>
-                  <Button text='Enviar' className='w-full' />
-                </Parallax>
-              </form>
-            </div>
-          </section>
+          <Project />
+          <Contact />
         </div>
       </main>
       <Footer />

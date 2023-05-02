@@ -112,7 +112,7 @@ export const projects = [
           'El sistema de administración de proyectos de TI es una herramienta para mejorar la gestión de proyectos. Dicha plataforma permite a los usuarios crear nuevos proyectos, editar y administrar la información del proyecto, y agregar miembros del equipo para colaborar.',
           'La herramienta ofrece una vista de tablero Kanban para la gestión de tareas, lo que permite a los usuarios visualizar el progreso de cada tarea en tiempo real. Los usuarios pueden mover las tareas entre diferentes columnas, agregar fecha de vencimiento, asignar prioridad, agregar descripción mediante un editor de texto y asignar tareas a miembros específicos del equipo.',
           'El sistema cuenta con una función de edición de datos que permite a los usuarios actualizar la información del proyecto, como el nombre, la descripción y la fecha de finalización. También pueden agregar y eliminar miembros del equipo según sea necesario. Además, se puede ver una vista general del proyecto, que proporciona información sobre el progreso, el tiempo estimado y el tiempo real utilizado para cada tarea.',
-          'Para mejorar la experiencia de usuario, nuestro sistema cuenta con una opción de modo oscuro y claro. Los usuarios pueden elegir su preferencia de color según su comodidad. También pueden crear, editar y eliminar usuarios según sea necesario.',
+          'Para mejorar la experiencia de usuario, el sistema cuenta con una opción de modo oscuro y claro. Los usuarios pueden elegir su preferencia de color según su comodidad. También pueden crear, editar y eliminar usuarios según sea necesario.',
         ],
         tools: {
             front: ['React', 'MUI'],

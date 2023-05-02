@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { useEffect, useRef } from 'react';
-import { projects } from '../data/data';
-import { Button } from './';
+import { projects } from '../../../data/data';
+import { Button } from '../../../components';
 
 const ModalProject = ({ id, setShowModal }) => {
   const { 
