@@ -13,7 +13,6 @@ const Input = ({ label, type = "text", className, ...props }) => {
         shadow-sm shadow-teal-300/60
         dark:text-white dark:border-teal-300 invalid:border-red-500
         focus:shadow-teal-300 focus:outline-none focus:ring-0 peer"
-        required
         {...props}
       />
       <label htmlFor={ props.name } 
