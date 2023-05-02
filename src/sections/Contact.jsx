@@ -20,12 +20,13 @@ const Contact = () => {
             <p className='text-2xl mb-6 text-white text-center'>Enviame un mensaje</p>
             <form
               method='POST'
-              name="contactForm"
+              name="contact"
+              data-netlify="true"
             >
               <input 
                 type='hidden'
                 name='form-name'
-                value='contactForm' />
+                value='contact' />
               <div className='flex flex-col md:flex-row  gap-3'>
                 <Input
                   label='Nombre'
