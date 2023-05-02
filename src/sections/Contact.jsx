@@ -21,12 +21,11 @@ const Contact = () => {
             <form
               method='POST'
               name="contact"
-              data-netlify="true"
             >
               <input 
                 type='hidden'
                 name='form-name'
-                value='contact' />
+                value="contact" />
               <div className='flex flex-col md:flex-row  gap-3'>
                 <Input
                   label='Nombre'
