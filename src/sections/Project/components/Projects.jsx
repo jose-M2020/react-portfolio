@@ -139,7 +139,7 @@ const Projects = () => {
                               initial='hidden'
                               animate='visible'
                               >
-                      <i className="fa-solid fa-globe mr-1 text-sm"></i>
+                      <i className="fa-solid fa-globe mr-1 md:text-xl lg:text-base"></i>
                       {((currentProject.items[currentItem]?.url?.demo) ?? (
                         (currentProject.items[0]?.url?.demo))?.split('').map((char, index) => (
                           <motion.span key={index} variants={letterAnimation}>{char}</motion.span>
