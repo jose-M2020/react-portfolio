@@ -24,6 +24,10 @@ body:has(.modal--active) {
     padding-right: 9px;
 }
 
+h1{
+  line-height: 1.1 !important;
+}
+
 /* main > div::after {
   content: '';
   z-index: 0;
@@ -43,7 +47,7 @@ body:has(.modal--active) {
 main > div {
   
   position: relative;
-  width: 100vw;
+  width: 100%;
 }
 
 .bg-bubble{

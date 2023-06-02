@@ -99,15 +99,19 @@ const Projects = () => {
               ))}
             </Parallax>
           </div>
-          <motion.div className='order-1 fixed bottom-0 left-50 opacity-0
-                          md:sticky md:right-0 md:top-[20%] md:h-full'
-                      animate={inViewport ? 'visible' : 'hidden'}
-                      variants={hideAnimation}>
+          <motion.div
+            className='order-1 md:sticky fixed bottom-0 left-50 opacity-0
+            md:right-0 md:top-[20%] md:h-full'
+            animate={inViewport ? 'visible' : 'hidden'}
+            variants={hideAnimation}
+          >
               {/* <img src="images/laptop-V2.svg" className='-z-10 w-[29rem]' alt="laptop" /> */}
-              <div className='p-4 backdrop-blur-md bg-sky-800/40 shadow-2xl shadow-gray-700 rounded-lg 
-                              scale-[.65] sm:scale-[1] md:scale-[.74] lg:scale-100 origin-bottom-left md:origin-right
-                              text-2xl sm:text-base' 
-                   key={currentId}>
+              <div
+                className='p-4 backdrop-blur-md bg-sky-800/40 shadow-2xl shadow-gray-700 rounded-lg 
+                scale-[.65] sm:scale-[1] md:scale-[.74] lg:scale-80 xl:scale-100 origin-bottom-left md:origin-right
+                text-2xl sm:text-base'
+                key={currentId}
+              >
                 {currentProject?.status === 'in progress' && (
                   <div
                     className="bg-blue-500 text-white p-1 rounded text-sm
@@ -130,15 +134,16 @@ const Projects = () => {
                           ))
                       )}
                     </div>
-                    <motion.a href={(currentProject.items[currentItem]?.url?.demo) ?? (currentProject.items[0]?.url?.demo)} 
-                              className='block text-white p-2 mb-5 shadow-sm shadow-sky-300 rounded-lg 
-                                         hover:bg-sky-800/70 duration-700 
-                                         md:text-xl lg:text-base' 
-                              target='_blank' rel='noreferrer'
-                              variants={sentenceAnimation}
-                              initial='hidden'
-                              animate='visible'
-                              >
+                    <motion.a 
+                      href={(currentProject.items[currentItem]?.url?.demo) ?? (currentProject.items[0]?.url?.demo)} 
+                      className='block text-white p-2 mb-5 shadow-sm shadow-sky-300 rounded-lg
+                      hover:bg-sky-800/70 duration-700
+                      md:text-xl xl:text-base'
+                      target='_blank' rel='noreferrer'
+                      variants={sentenceAnimation}
+                      initial='hidden'
+                      animate='visible'
+                    >
                       <i className="fa-solid fa-globe mr-1 md:text-xl lg:text-base"></i>
                       {((currentProject.items[currentItem]?.url?.demo) ?? (
                         (currentProject.items[0]?.url?.demo))?.split('').map((char, index) => (

@@ -2,21 +2,7 @@ import { useEffect, useState } from 'react'
 import logo from '../logo.png'
 import { motion, useCycle, useScroll } from "framer-motion"
 import { MenuToggle } from './'
-
-const links = [
-  {
-      name: 'ACERCA',
-      url: '/#about'
-  },
-  {
-      name: 'PORTAFOLIO',
-      url: '/#portfolio'
-  },
-  {
-      name: 'CONTACTO',
-      url: '/#contact'
-  }
-];
+import { links } from '../data/data'
 
 const mobileNavbar = {
   open: {

@@ -157,7 +157,7 @@ export const editors = [
         data: {
             nombre: 'Jose Manuel Silva',
             profesion: 'Desarrollador Full-stack',
-            descripcion: 'Me gusta estar en constante aprendizaje para refrescar o adquirir nuevos conocimientos que me ayuden en el desarrollo de proyectos. Siempre he tenido un gran interés por la programación, crear soluciones mediante el desarrollo de software que facilite las tareas en la vida cotidiana o en áreas laborales.'
+            descripcion: 'Me apasiona el aprendizaje continuo, buscando constantemente actualizar y ampliar mis conocimientos para mejorar mis habilidades en el desarrollo de proyectos. Mi profundo interés por la programación me impulsa a crear soluciones a través del desarrollo de software, con el objetivo de facilitar tareas tanto en la vida cotidiana como en entornos laborales'
         }
     },
     {
@@ -193,3 +193,31 @@ export const socialMedia = [
         icon: 'fa-brands fa-codepen'
     },
 ]
+
+export const links = [
+  {
+      name: 'INICIO',
+      url: '/#',
+      icon: 'fa-solid fa-home'
+  },
+  {
+      name: 'ACERCA',
+      url: '/#about',
+      icon: 'fa-solid fa-user'
+  },
+  {
+      name: 'PORTAFOLIO',
+      url: '/#portfolio',
+      icon: 'fa-regular fa-folder-open'
+  },
+  {
+      name: 'CONTACTO',
+      url: '/#contact',
+      icon: 'fa-solid fa-envelope'
+  },
+  {
+      name: 'CV',
+      url: '/JoséSilva-CV.pdf',
+      icon: 'fa-solid fa-file'
+  }
+];

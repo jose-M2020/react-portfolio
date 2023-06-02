@@ -1,6 +1,6 @@
 import React from 'react'
-import { Button, Input, Parallax, Textarea } from '../components'
-import SubTitle from '../components/SubTitle'
+import { Button, Input, Parallax, Textarea } from '../../components'
+import SubTitle from '../../components/SubTitle'
 
 const Contact = () => {
   return (
