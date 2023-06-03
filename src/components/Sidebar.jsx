@@ -5,8 +5,8 @@ import Button from './Button'
 const Sidebar = () => {
   return (
     <div className='bg-[#1d3452] w-full lg:w-[300px] text-white
-      absolute top-0 left-0 bottom-0 right-0 md:sticky md:top-0
-      flex flex-col h-screen z-10'
+      absolute top-0 left-0 bottom-0 right-0 lg:sticky md:top-0
+      hidden lg:flex flex-col h-screen z-10'
     >
       {/* <div className='h-[100px] mb-[60px] relative'>
         <img src="/images/banner.jpg" className='object-cover h-full w-full' alt="Banner" />
@@ -46,8 +46,8 @@ const Sidebar = () => {
           </div>
         </div>
       </div>
-      <div className='px-7 pb-8 flex flex-col justify-between h-full'>
-        <div className='flex flex-col gap-4 my-12'>
+      <div className='px-7 pb-8 mt-12 flex flex-col justify-between h-full overflow-y-auto'>
+        <div className='flex flex-col gap-4 mb-12'>
           {links.map(({ name, url, icon }, index) => (
               <div className='' key={index}><a href={url}><i className={`${icon} w-6 mr-2`} />{ name }</a></div>
           ))}
