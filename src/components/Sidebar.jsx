@@ -1,6 +1,5 @@
 import React from 'react'
 import { links, socialMedia } from '../data/data'
-import Button from './Button'
 
 const Sidebar = () => {
   return (

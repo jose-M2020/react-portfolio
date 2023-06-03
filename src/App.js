@@ -1,5 +1,4 @@
 import './App.css';
-import { Footer } from './components';
 import Sidebar from './components/Sidebar';
 import Project from './sections/Project';
 import Contact from './sections/Contact';

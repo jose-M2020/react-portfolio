@@ -1,7 +1,6 @@
 import React, { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Button, Parallax } from '../../components'
-import { socialMedia } from '../../data/data';
 
 const textAnimate = {
   hidden: {
