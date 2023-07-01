@@ -1,81 +1,23 @@
 import React, { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Button, Parallax } from '../../components'
+import Screens from './components/Screens';
 
-const textAnimate = {
-  hidden: {
-    y: 50, 
-    opacity: 0
-  },
-  visible: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      type: "spring",
-      bounce: 0.3,
-      duration: 1
-    }
-  }
-}
-
-const baseTranform = {
-  x: '-50%',
-  y: '-50%',
-  opacity: 0,
-  rotateY: 158,
-  skewY: 346,
-  transformPerspective: 900, 
-}
-
-const editorAnimate = {
-  hidden: {
-    ...baseTranform
-  },
-  visible: {
-    opacity: 1,
-    transition: {
-      type: "spring",
-      bounce: 0.3,
-      duration: 2
-    }
-  }
-}
-
-const mockup1Animate = {
-  hidden: {
-    ...baseTranform,
-    skewY: 343,
-  },
-  visible: {
-    opacity: 1,
-    top: '40%',
-    left: '28%',
-    y: '-78%',
-    scale: .7,
-    transition: {
-      type: "spring",
-      bounce: 0.3,
-      duration: 2,
-      delay: 1
-    }
-  }
-}
-
-const mockup2Animate = {
-  hidden: {
-    ...baseTranform
-  },
-  visible: {
-    opacity: 1,
-    top: '45%',
-    left: '76%',
-    y: '-45%',
-    scale: .7,
-    transition: {
-      type: "spring",
-      bounce: 0.3,
-      duration: 2,
-      delay: 1
+const textAnimate = (duration = 1) => {
+  
+  return {
+    hidden: {
+      y: 20, 
+      opacity: 0
+    },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        // bounce: 0.3,
+        duration
+      }
     }
   }
 }
@@ -102,10 +44,10 @@ const Home = () => {
               <motion.div className='text-center lg:text-left lg:max-w-[50%]'
                           initial={"hidden"}
                           whileInView={"visible"}
-                          viewport={{once: true, amount: 0.5}}
+                          viewport={{once: true, amount: 1}}
                           transition={{
                             delayChildren: 0.3,
-                            staggerChildren: 0.5
+                            staggerChildren: 0.1
                           }}>
                 {/* <motion.span className='text-xl md:text-1xl lg:text-3xl font-semibold' variants={textAnimate}>
                   ¡Hola! Mi nombre es
@@ -116,10 +58,10 @@ const Home = () => {
                 {/* <motion.h1 className="sm:text-5xl text-3xl font-bold tracking-tight text-gray-900 dark:text-white" variants={textAnimate}>
                   Descubre mis Proyectos Web y Ponte en Contacto
                 </motion.h1> */}
-                <motion.h1 className="mb-6 sm:text-5xl text-3xl font-bold tracking-tight text-gray-900 dark:text-white" variants={textAnimate}>
+                <motion.h1 className="mb-6 sm:text-5xl text-3xl font-bold tracking-tight text-gray-900 dark:text-white" variants={textAnimate(2)}>
                   ¡Hola!<br/>soy <span className='text-[#43eeb2]'>Jose Manuel</span>,<br/>desarrollador web
                 </motion.h1>
-                <motion.p className="mb-6 text-lg leading-8 text-gray-300" variants={textAnimate}>
+                <motion.p className="mb-6 text-lg leading-8 text-gray-300" variants={textAnimate(4)}>
                   Programador en creación de aplicaciones web utilizando principalmente la tecnología MEAN stack. Con conocimientos en desarrollo tanto de frontend como de backend.
                 </motion.p>
                 {/* <motion.div className='flex gap-3 mt-4' variants={textAnimate}>
@@ -140,21 +82,11 @@ const Home = () => {
                 {/* <motion.span className='text-xl md:text-1xl lg:text-3xl block font-semibold mt-5 text-white' variants={textAnimate}>
                   Desarrollador Full-stack
                 </motion.span> */}
-                <motion.div className='' variants={textAnimate}>
+                <motion.div className='' variants={textAnimate(7)}>
                   <Button text='Ver Proyectos' href='./#portfolio' />
                 </motion.div>
               </motion.div>
-              <motion.div className='hidden lg:block flex-grow absolute md:relative
-                                    sm:scale-75 lg:scale-80 xl:scale-100 origin-center-rigth'
-                          initial={"hidden"}
-                          whileInView={"visible"}
-                          viewport={{once: true, amount: 0.5}}
-                          >
-                  <motion.div className='screen editor' variants={editorAnimate}></motion.div>
-                  <motion.img src="/images/programmer.svg" className='absolute top-1/2 left-[60%] -translate-x-1/2 -translate-y-1/2 w-72' alt="Programmer" />
-                  <motion.div className='screen mockup1' variants={mockup1Animate}></motion.div>
-                  <motion.div className='screen mockup2' variants={mockup2Animate}></motion.div>           
-              </motion.div>
+              <Screens />
             </Parallax>
           </div>
         </div>

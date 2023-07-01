@@ -39,9 +39,9 @@ const Sidebar = () => {
             <p className='text-s  mb-1'>
               Full-Stack Developer
             </p>
-            <p className='text-xs mt-[4px]'>
+            {/* <p className='text-xs mt-[4px]'>
               <i className="fa-solid fa-location-dot" /> Guerrero, MX.
-            </p>
+            </p> */}
           </div>
         </div>
       </div>

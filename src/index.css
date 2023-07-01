@@ -102,6 +102,7 @@ main > div {
   width: 435px;
   height: 260px;
   /* transform: perspective(900px) rotateY(147deg) skewY(349deg) translateY(-50%); */
+  /* transform: translateX(-50%) translateY(-78%) rotateY(-20deg) rotateX(20deg); */
   transform-origin: top center;
 }
 
@@ -109,7 +110,7 @@ main > div {
   background: url(../public/images/hero/editor-screen.svg), rgb(21 66 100 / 51%);
   top: 50%;
   left: 50%;
-  z-index: 50;
+  /* z-index: 50; */
 }
 
 .screen.mockup1{
