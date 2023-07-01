@@ -1,6 +1,5 @@
 import React from 'react'
-import { motion, useMotionValue, useTransform } from 'framer-motion';
-import RotationWrapper from './RotationWrapper';
+import { motion } from 'framer-motion';
 
 const baseTranform = {
   x: '-50%',

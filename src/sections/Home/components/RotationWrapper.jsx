@@ -18,7 +18,6 @@ const RotationWrapper = ({children}) => {
     if (!cardRef.current) return 0;
     const rect = cardRef.current.getBoundingClientRect();
     const newRotateX = newMouseY - rect.top - rect.height / 2;
-    console.log('moving, ', -newRotateX / dampen)
     return -newRotateX / dampen;
   });
   const rotateY = useTransform(mouseX, (newMouseX) => {
