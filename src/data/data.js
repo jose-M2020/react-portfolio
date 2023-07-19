@@ -84,6 +84,29 @@ export const projects = [
     },
     {
         id: 4,
+        title: "Ta'Contento",
+        status: 'completed',
+        description: [
+          "Ta'Contento ofrece un sistema completo y fácil de usar que permite a los clientes disfrutar de una experiencia gastronómica sin complicaciones. Con la función de inicio de sesión, los usuarios pueden acceder a un carrito de compras personalizado para ordenar comida en línea de manera conveniente.",
+          'Además, el sistema de reservas permite a los clientes la capacidad de asegurar una mesa en el restaurante de forma rápida y sencilla. Con un panel de control dedicado, los administradores tienen el control total sobre la gestión de ofertas, pedidos, reservas, menú, ventas y clientes.',
+          'Los administradores pueden crear, actualizar y eliminar ofertas, así como visualizar informes detallados de ventas y clientes. Además, pueden gestionar y cambiar el estado de los pedidos y las reservas para garantizar un servicio eficiente.'
+        ],
+        tools: {
+            front: ['HTML', 'Bootstrap'],
+            back: ['PHP', 'MySQL']
+        },
+        items: [{
+            img: [
+                'images/projects/tacontento.png'
+            ],
+            url: {
+                github: 'https://github.com/jose-M2020/tacontento',
+                demo: 'https://jose-sites.000webhostapp.com'
+            }
+        }],
+    },
+    {
+        id: 5,
         title: 'YouPlay',
         status: 'completed',
         description: [
@@ -105,7 +128,7 @@ export const projects = [
         }],
     },
     {
-        id: 5,
+        id: 6,
         title: 'Administrador de proyectos',
         status: 'in progress',
         description: [
