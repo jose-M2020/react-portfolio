@@ -1,71 +1,22 @@
-import { motion } from 'framer-motion'
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useIntersection } from '../../../utils/useIntersection';
 import { Parallax } from '../../../components'
 import ProjectCard from './ProjectCard';
 import { projects } from '../../../data/data';
-
-const sentenceAnimation = {
-  hidden: { opacity: 1 },
-  visible: {
-    opacity: 1,
-    transition: {
-      // delay: .0,
-      staggerChildren: .03
-    }
-  }
-}
-
-const letterAnimation = {
-  hidden: { opacity: 0, y: 50 },
-  visible: {
-    opacity: 1,
-    y: 0,
-  }
-}
-
-const screenAnimation = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      duration: .8
-    }
-  }
-}
-
-const hideAnimation = {
-  hidden: { 
-    opacity: 0,
-    y: '100%', 
-    transition: {
-      duration: .8,
-      opacity: {
-        duration: .3,
-      }
-    }
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: .4,
-      opacity: {
-        duration: .8,
-      }
-    }
-  }
-}
+import { ProjectImage } from './ProjectImage';
 
 const Projects = () => {
-  const [currentId, setCurrentId] = useState(null);
-  const [currentItem, setCurrentItem] = useState(0);
-  // const [showModal, setShowModal] = useState(false);
-  const currentProject = projects.find(item => item.id === currentId);
-
   const refProjects = useRef();
-
+  const [currentProjectId, setCurrentProjectId] = useState(null);
+  const [projectItemIndex, setProjectItemIndex] = useState(0);
+  // const [showModal, setShowModal] = useState(false);
+  
+  const currentProject = projects.find(item => item.id === currentProjectId);
   const inViewport = useIntersection(refProjects, '-100px');
+
+  useEffect(() => {
+    setProjectItemIndex(0);
+  }, [currentProjectId])
 
   return (
     <>
@@ -87,115 +38,26 @@ const Projects = () => {
         <div className='flex flex-col md:flex-row justify-between gap-10'>
           <div ref={refProjects} className='w-full md:w-1/2 text-white order-2 md:order-1'>
             <Parallax>
-              {/* <ProjectCard data={projects[0]} currentId={currentId} setCurrentId={setCurrentId} /> */}
+              {/* <ProjectCard data={projects[0]} currentProjectId={currentProjectId} setCurrentProjectId={setCurrentProjectId} /> */}
               {projects.map((item, index, {length}) => (
                 <ProjectCard
                   key={index}
                   index={index}
                   length={length}
-                  data={item}
-                  currentId={currentId}
-                  setCurrentId={setCurrentId} />
+                  projectData={item}
+                  currentProjectId={currentProjectId}
+                  setCurrentProjectId={setCurrentProjectId} />
               ))}
             </Parallax>
           </div>
-          <div className='order-1 relative'>
-            <motion.div
-              className='fixed md:sticky bottom-[70px] left-50 md:right-0 md:top-[20%] opacity-0
-              '
-              animate={inViewport ? 'visible' : 'hidden'}
-              variants={hideAnimation}
-            >
-                {/* <img src="images/laptop-V2.svg" className='-z-10 w-[29rem]' alt="laptop" /> */}
-                <div
-                  className='h-full p-4 backdrop-blur-md bg-sky-800/40 shadow-2xl shadow-gray-700 rounded-lg 
-                  scale-[.65] sm:scale-[1] md:scale-[.9] lg:scale-80 xl:scale-100 origin-bottom-left md:origin-right
-                  text-2xl sm:text-base'
-                  key={currentId}
-                >
-                  {currentProject?.status === 'in progress' && (
-                    <div
-                      className="bg-blue-500 text-white p-1 rounded text-sm
-                      absolute h-14-left-4 -top-4 right-2"
-                    >
-                      <i className="fa-solid fa-gear fa-spin fa-spin-reverse"></i>
-                      <span className='ml-1'>En construcción</span>
-                    </div>
-                  )}
-                  {currentId ? (
-                    <>
-                      <div className='flex gap-1 text-white mb-3'>
-                        {currentProject.items.length > 1 && (
-                            currentProject.items.map((item, index) => (
-                                <button key={index} className={`px-2 py-1 bg-teal-200/30 rounded-lg 
-                                                hover:bg-teal-200/10 hover:shadow-2xl duration-150
-                                                ${currentItem === index ? 'bg-teal-200/10 border-b border-b-teal-400' : ''}`}
-                                        onClick={() => setCurrentItem(index)}
-                                >{item.name}</button>
-                            ))
-                        )}
-                      </div>
-                      <motion.a 
-                        href={(currentProject.items[currentItem]?.url?.demo) ?? (currentProject.items[0]?.url?.demo)} 
-                        className='block text-white p-2 mb-5 shadow-sm shadow-sky-300 rounded-lg
-                        hover:bg-sky-800/70 duration-700
-                        lg:text-lg xl:text-base truncate'
-                        target='_blank' rel='noreferrer'
-                        variants={sentenceAnimation}
-                        initial='hidden'
-                        animate='visible'
-                      >
-                        <i className="fa-solid fa-globe mr-1 md:text-xl lg:text-base"></i>
-                        {((currentProject.items[currentItem]?.url?.demo) ?? (
-                          (currentProject.items[0]?.url?.demo))?.split('').map((char, index) => (
-                            <motion.span key={index} variants={letterAnimation}>{char}</motion.span>
-                          ))
-                        )}
-                      </motion.a>
-                      {/* <a href={currentProject?.url?.demo} className='block text-white bg-teal-800/60 p-2 mb-2 rounded-lg' target='_blank' rel='noreferrer'>{currentProject?.url?.demo}</a> */}
-                      {/* <motion.img src={currentProject?.img} alt="project mockup"
-                                  className="w-full p-2 rounded-lg" 
-                                  variants={screenAnimation}
-                                  initial='hidden'
-                                  animate='visible'
-                                  // onClick={() => currentId && setShowModal(true)}
-                                  // layoutId='card-image-container'
-                      /> */}
-
-                      {/* PROJECT IMAGE */}
-                      <motion.div 
-                        className="p-2 w-[500px] h-[261px] rounded-lg shadow-sm" 
-                        variants={screenAnimation}
-                        initial='hidden'
-                        animate='visible'
-                        style={{
-                          background: `url(${(currentProject.items[currentItem]?.img) ?? (currentProject.items[0]?.img)}), rgb(21 66 100 / 51%)`,
-                        }}
-                        // onClick={() => currentId && setShowModal(true)}
-                        // layoutId='card-image-container'
-                      >
-                      </motion.div>
-                      
-                      {/* <motion.div
-                        className="p-2 rounded-lg h-full shadow-sm"
-                        variants={screenAnimation}
-                        initial='hidden'
-                        animate='visible'
-                      >
-                        <img
-                          className='w-full'
-                        src={ (currentProject.items[currentItem]?.img) ?? (currentProject.items[0]?.img) } alt="" />
-
-                      </motion.div> */}
-                    </>
-                  ) : (
-                    <div className="animate-pulse h-full">
-                      <div className='w-full p-2 mb-2 bg-[#30a6ff82] rounded-lg'></div>
-                      <div className='p-2 w-[500px] h-[261px] rounded-lg  shadow-sm bg-[#30a6ff82]'></div>
-                    </div>
-                  )}
-                </div>
-            </motion.div>
+          <div className='order-1 relative w-1/2'>
+            <ProjectImage
+              inViewport={inViewport}
+              currentProject={currentProject}
+              currentProjectId={currentProjectId}
+              projectItemIndex={projectItemIndex}
+              setProjectItemIndex={setProjectItemIndex}
+            />
           </div>
         </div>
 
@@ -203,7 +65,7 @@ const Projects = () => {
 
       {/* <AnimatePresence>
       {showModal && (
-        <ModalProject id={currentId} showModal={showModal} setShowModal={setShowModal} />
+        <ModalProject id={currentProjectId} showModal={showModal} setShowModal={setShowModal} />
       )}
       </AnimatePresence> */}
     </>

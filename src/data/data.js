@@ -142,9 +142,7 @@ export const projects = [
             back: ['GraphQL', 'MongoDB']
         },
         items: [{
-            img: [
-                // 'images/projects/you-play.png'
-            ],
+            img: [],
             url: {
                 github: 'https://github.com/jose-M2020/you-play',
                 demo: 'https://tech-manage.vercel.app/projects'
@@ -221,26 +219,31 @@ export const links = [
   {
       name: 'INICIO',
       url: '/#',
-      icon: 'fa-solid fa-home'
+      icon: 'fa-solid fa-home',
+      showMobile: true,
   },
   {
       name: 'ACERCA',
       url: '/#about',
-      icon: 'fa-solid fa-user'
+      icon: 'fa-solid fa-user',
+      showMobile: true,
   },
   {
       name: 'PORTAFOLIO',
       url: '/#portfolio',
-      icon: 'fa-regular fa-folder-open'
+      icon: 'fa-regular fa-folder-open',
+      showMobile: true,
   },
   {
       name: 'CONTACTO',
       url: '/#contact',
-      icon: 'fa-solid fa-envelope'
+      icon: 'fa-solid fa-envelope',
+      showMobile: true,
   },
   {
       name: 'CV',
       url: '/JoséSilva-CV.pdf',
-      icon: 'fa-solid fa-file'
+      icon: 'fa-solid fa-file',
+      showMobile: false,
   }
 ];

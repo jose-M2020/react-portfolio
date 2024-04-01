@@ -13,15 +13,22 @@ function App() {
     >
       <div className=''>
         <Sidebar />
-        <div className='block lg:hidden fixed bottom-0 left-0 w-full p-3 bg-[#1d3452] text-gray-200 z-30'>
-          <div className='flex justify-center gap-4'>
-            {links.map(({ name, url, icon }, index) => (
-              <div className='text-center' key={index}>
-                <a href={url} className='hover:text-[#43eeb2] transition' >
-                  <i className={`${icon} text-2xl text-center`} />
-                  <span className='block text-[.6rem]'>{ name }</span>
-                </a>
-              </div>
+        <div className='flex justify-center lg:hidden fixed bottom-0 left-0 w-full text-gray-200 z-30'>
+          <div
+            className='flex justify-between md:gap-10 md:w-auto w-full bg-[#1d3452]/70 md:rounded-full backdrop-blur-md px-4'
+            style={{
+              boxShadow: '0 -1px 3px #43eeb2',
+            }}
+          >
+            {links.map(({ name, url, icon, showMobile }, index) => (
+              showMobile && (
+                <div className='text-center p-3' key={index}>
+                  <a href={url} className='hover:text-[#43eeb2] transition' >
+                    <i className={`${icon} text-sm text-center`} />
+                    <span className='hidden min-[400px]:block text-[.8rem]'>{ name }</span>
+                  </a>
+                </div>
+              )
             ))}
           </div>
         </div>

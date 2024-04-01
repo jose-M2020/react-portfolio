@@ -2,6 +2,7 @@ import React, { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Button, Parallax } from '../../components'
 import Screens from './components/Screens';
+import { socialMedia } from '../../data/data';
 
 const textAnimate = (duration = 1) => {
   
@@ -40,7 +41,7 @@ const Home = () => {
         {/* <GradientAnimation /> */}
         <div className="w-full">
           <div className='px-6 max-w-screen-xl mx-auto '>
-            <Parallax className='flex flex-col md:flex-row gap-8 items-center md:text-left'>
+            <Parallax className='flex flex-col md:flex-row gap-8 items-center justify-center md:text-left'>
               <motion.div className='text-center lg:text-left lg:max-w-[50%]'
                           initial={"hidden"}
                           whileInView={"visible"}
@@ -61,7 +62,7 @@ const Home = () => {
                 <motion.h1 className="mb-6 sm:text-5xl text-3xl font-bold tracking-tight text-gray-900 dark:text-white" variants={textAnimate(2)}>
                   ¡Hola!<br/>soy <span className='text-[#43eeb2]'>Jose Manuel</span>,<br/>desarrollador web
                 </motion.h1>
-                <motion.p className="mb-6 text-lg leading-8 text-gray-300" variants={textAnimate(4)}>
+                <motion.p className="mb-2 text-lg leading-8 text-gray-300 max-w-[600px]" variants={textAnimate(4)}>
                   Programador en creación de aplicaciones web utilizando principalmente la tecnología MEAN stack. Con conocimientos en desarrollo tanto de frontend como de backend.
                 </motion.p>
                 {/* <motion.div className='flex gap-3 mt-4' variants={textAnimate}>
@@ -82,6 +83,19 @@ const Home = () => {
                 {/* <motion.span className='text-xl md:text-1xl lg:text-3xl block font-semibold mt-5 text-white' variants={textAnimate}>
                   Desarrollador Full-stack
                 </motion.span> */}
+                <motion.div className='mb-5' variants={textAnimate(7)}>
+                  <div className='flex justify-center lg:hidden gap-3'>
+                    {socialMedia.map((item, index) => (
+                      <a className='text-gray-300 text-lg hover:text-sky-300 w-8 h-8 duration-300' 
+                        href={ item.link }
+                        key={index}
+                        target='_blank'
+                        rel="noreferrer">
+                        <i className={ item.icon }></i>
+                      </a>
+                    ))}
+                  </div>
+                </motion.div>
                 <motion.div className='' variants={textAnimate(7)}>
                   <Button text='Ver Proyectos' href='./#portfolio' />
                 </motion.div>

@@ -4,9 +4,9 @@ import { motion, useScroll } from 'framer-motion';
 const ProjectCard = ({ 
   index,
   length,
-  data,
-  currentId,
-  setCurrentId
+  projectData,
+  currentProjectId,
+  setCurrentProjectId,
 }) => {
   const { scrollY } = useScroll();
   const projectRef = useRef();
@@ -17,7 +17,7 @@ const ProjectCard = ({
     title, 
     description, 
     tools: {front, back} 
-  } = data;
+  } = projectData;
 
   // TODO: Fix the scroll
 
@@ -26,12 +26,12 @@ const ProjectCard = ({
       const {top} = projectRef.current.getBoundingClientRect();
       const positionY = Math.round((top/window.innerHeight)*100);
         
-      if((positionY < 60 && positionY > 0) && id !== currentId) {
-        setCurrentId(id);
+      if((positionY < 60 && positionY > 0) && id !== currentProjectId) {
+        setCurrentProjectId(id);
       } 
       // if((positionY > 60 && positionY < 0)){
       //   setCurrentItem(0);
-      //   setCurrentId(null);
+      //   setCurrentProjectId(null);
       // }
     });
   })
@@ -43,7 +43,7 @@ const ProjectCard = ({
   return (
     // <div className="w-full p-1 md:p-2 overflow-hidden
     //                 hover:cursor-pointer hover:scale-105 duration-200" 
-    //       onClick={() => setCurrentId(id)}
+    //       onClick={() => setCurrentProjectId(id)}
     // >
     //   <motion.div className='w-full h-full rounded-lg overflow-hidden relative
     //                          after:absolute after:top-0 after:left-0 
@@ -70,7 +70,7 @@ const ProjectCard = ({
         </div>
       )}
       {/* RIGHT SIDE - CARD */}
-      <div className='h-full w-full p-4 rounded-2xl shadow-lg shadow-[#1adba2]/30 text-justify' ref={projectRef}>
+      <div className='h-full w-full p-4 rounded-2xl shadow-lg shadow-[#1adba2]/30' ref={projectRef}>
           <motion.h3
             className='text-4xl font-bold mb-6 text-[1.8rem]'
             layoutId={`card-title-${id}`}
@@ -104,27 +104,19 @@ const ProjectCard = ({
           >
             {!showMore ? 'Leer más' : 'Leer menos'}
           </span>
-          <div className='mt-4'>
-            {front && (
-              <div className='flex mb-2'>
-                <span className='font-bold mr-1'>Front-end: </span>
-                <ul className='flex flex-wrap gap-1'>
-                  {front.map((item, i, {length}) => (
-                    <li key={i}>{(length - 1 === i) ? item : (item + ',')}</li>
-                  ))}
-                </ul>
-              </div>
-            )}
-            {back && (
-              <div className='flex'>
-                <span className='font-bold mr-1'>Back-end: </span>
-                <ul className='flex gap-2'>
-                  {back.map((item, i, {length}) => (
-                    <li key={i}>{(length - 1 === i) ? item : (item + ',')}</li>
-                  ))}
-                </ul>
-              </div>
-            )}
+          <div className='mt-4 mb-3'>
+            <div className='flex flex-wrap gap-x-2 gap-y-3 '>
+              {front.map((item, i, {length}) => (
+                <div className='px-3  rounded-full bg-[#263b4b]' key={i}>
+                  {item}
+                </div>
+              ))}
+              {back.map((item, i, {length}) => (
+                <div className='px-3  rounded-full bg-[#345168]' key={i}>
+                  {item}
+                </div>
+              ))}
+            </div>
           </div>
       </div>
     </div>
