@@ -1,12 +1,15 @@
 import React from 'react'
-import { SubTitle } from '../../components'
+import { SectionTitle } from '../../components'
 import Projects from './components/Projects'
 
 const Project = () => {
   return (
-    <section className="py-24" id='portfolio'>
+    <section className="pb-24" id='portfolio' data-section>
       <div className='px-6 max-w-screen-xl mx-auto'>
-        <SubTitle text="Portafolio" />
+        <SectionTitle
+          text="Portafolio"
+          description="Aquí puedes ver algunos de los proyectos personales en los que he trabajado."
+        />
         <Projects />
       </div>
     </section>

@@ -3,7 +3,7 @@ import { useIntersection } from '../../../utils/useIntersection';
 import { Parallax } from '../../../components'
 import ProjectCard from './ProjectCard';
 import { projects } from '../../../data/data';
-import { ProjectImage } from './ProjectImage';
+import { ProjectPreview } from './ProjectPreview';
 
 const Projects = () => {
   const refProjects = useRef();
@@ -51,7 +51,7 @@ const Projects = () => {
             </Parallax>
           </div>
           <div className='order-1 relative w-1/2'>
-            <ProjectImage
+            <ProjectPreview
               inViewport={inViewport}
               currentProject={currentProject}
               currentProjectId={currentProjectId}
