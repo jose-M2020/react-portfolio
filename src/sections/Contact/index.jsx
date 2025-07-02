@@ -1,5 +1,3 @@
-import React from 'react'
-import { Parallax } from '../../components'
 import SubTitle from '../../components/SectionTitle'
 import ContactForm from './components/ContactForm'
 import SocialLinks from './components/SocialLinks'

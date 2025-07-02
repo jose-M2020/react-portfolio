@@ -2,22 +2,22 @@ import { useEffect, useState } from 'react'
 import logo from '../logo.png'
 import { motion, useCycle, useScroll } from "framer-motion"
 import { MenuToggle } from './'
-import { links } from '../data/data'
+// import { links } from '../data/data'
 import Sidebar from './sidebar'
 
-const mobileNavbar = {
-  open: {
-      top: '0', 
-      opacity: 1,
-      visibility: 'visible',
-      transition: {
-        duration: .5
-      }
-  },
-  closed: {
+// const mobileNavbar = {
+//   open: {
+//       top: '0', 
+//       opacity: 1,
+//       visibility: 'visible',
+//       transition: {
+//         duration: .5
+//       }
+//   },
+//   closed: {
       
-  }
-}
+//   }
+// }
 
 const navbar = {
   visible: { 
@@ -54,24 +54,24 @@ const Navbar = () => {
     scrollY.onChange(() => updateState());
   });
   
-  const Menu = () => (
-    <motion.ul
-      className='bg-[#0a1218] md:bg-transparent absolute top-[-100px] left-0 md:static 
-        h-screen md:h-auto 
-        w-screen md:w-auto 
-        flex align-middle justify-center flex-col md:flex-row gap-6 md:gap-3
-        opacity-0 md:opacity-100 invisible md:visible
-        text-3xl md:text-sm font-semibold
-        z-40'
-        variants={mobileNavbar}
-      >
-        {links.map(({ name, url }, index) => (
-            <li className='text-center' key={index}>
-              <a href={url}>{ name }</a>
-            </li>
-        ))}
-    </motion.ul>
-  );
+  // const Menu = () => (
+  //   <motion.ul
+  //     className='bg-[#0a1218] md:bg-transparent absolute top-[-100px] left-0 md:static 
+  //       h-screen md:h-auto 
+  //       w-screen md:w-auto 
+  //       flex align-middle justify-center flex-col md:flex-row gap-6 md:gap-3
+  //       opacity-0 md:opacity-100 invisible md:visible
+  //       text-3xl md:text-sm font-semibold
+  //       z-40'
+  //       variants={mobileNavbar}
+  //     >
+  //       {links.map(({ name, url }, index) => (
+  //           <li className='text-center' key={index}>
+  //             <a href={url}>{ name }</a>
+  //           </li>
+  //       ))}
+  //   </motion.ul>
+  // );
 
   return (
     <>
