@@ -6,6 +6,12 @@ const SkillsEditor = ({data}) => {
     <div>
         <CodeBlock keyName='frontEnd' data={data.front} next={true} />
         <CodeBlock keyName='backEnd' data={data.back} />
+        {/* <CodeBlock          
+          keyName='backEnd'
+          data={{
+            frontEnd: data.front,
+            backEnd: data.back,
+          }} /> */}
     </div>
   )
 }

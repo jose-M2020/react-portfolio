@@ -7,14 +7,22 @@ const CodeBlock = ({keyName, data, next}) => {
       {getType(data) === 'object' ?
         <>
           <span className='border-b-2 border-transparent group-hover:border-[#1adba2] duration-200'>{keyName && keyName + ': '}</span><span className='text-[#1adba2]'>{'{'}</span>
-          {Object.keys(data).map((key, index, {length}) => (
-              <div className='py-1 border-l border-transparent group-hover:border-[#1adba2] duration-200' key={index}>
+          {Object.keys(data).map((key, index, {length}) => {
+            const subData = data[key];
+
+            if(typeof subData === 'string'){
+              return (
+                <div className='py-1 border-l border-transparent group-hover:border-[#1adba2] duration-200' key={index}>
                   <div className='ml-5'>
-                    <span className='text-[#a0dbfc]'>{key}: </span><span className='text-[#efb097]'>"{data[key]}"</span>
+                    <span className='text-[#a0dbfc]'>{key}: </span><span className='text-[#efb097]'>"{subData}"</span>
                     { !(length - 1 === index) && <span className='text-[#1adba2]'>{','}</span>}
                   </div>
-              </div>
-          ))}
+                </div>
+              )
+            }
+              
+            return null;
+          })}
           <span className='text-[#1adba2]'>{next ? '},' : '}'}</span>
         </>
       :

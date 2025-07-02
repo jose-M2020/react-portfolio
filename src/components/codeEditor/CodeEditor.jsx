@@ -8,8 +8,7 @@ const CodeEditor = () => {
 
   return (
     <div className='mx-auto xl:text-lg shadow-sm shadow-blue-500 rounded-md 
-                    backdrop-blur-lg bg-sky-800/10 overflow-hidden 
-                    md:transform-x hover:rotate-0 duration-300 ease-[[0.1, 0.25, 0.3, 1]]'>
+                    backdrop-blur-lg bg-sky-800/10 overflow-hidden'>
         <div className=' bg-sky-800/20 flex shadow-sm shadow-[#2d455f] h-10'>
             {editorTabs.map((tab, index) => (
               <Tab key={index} text={tab} activeTab={activeTab} setActiveTab={setActiveTab} />
