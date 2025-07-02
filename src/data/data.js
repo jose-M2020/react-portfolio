@@ -127,50 +127,75 @@ export const projects = [
             }
         }],
     },
-    {
-        id: 6,
-        title: 'Administrador de proyectos',
-        status: 'in progress',
-        description: [
-          'El sistema de administración de proyectos de TI es una herramienta para mejorar la gestión de proyectos. Dicha plataforma permite a los usuarios crear nuevos proyectos, editar y administrar la información del proyecto, y agregar miembros del equipo para colaborar.',
-          'La herramienta ofrece una vista de tablero Kanban para la gestión de tareas, lo que permite a los usuarios visualizar el progreso de cada tarea en tiempo real. Los usuarios pueden mover las tareas entre diferentes columnas, agregar fecha de vencimiento, asignar prioridad, agregar descripción mediante un editor de texto y asignar tareas a miembros específicos del equipo.',
-          'El sistema cuenta con una función de edición de datos que permite a los usuarios actualizar la información del proyecto, como el nombre, la descripción y la fecha de finalización. También pueden agregar y eliminar miembros del equipo según sea necesario. Además, se puede ver una vista general del proyecto, que proporciona información sobre el progreso, el tiempo estimado y el tiempo real utilizado para cada tarea.',
-          'Para mejorar la experiencia de usuario, el sistema cuenta con una opción de modo oscuro y claro. Los usuarios pueden elegir su preferencia de color según su comodidad. También pueden crear, editar y eliminar usuarios según sea necesario.',
-        ],
-        tools: {
-            front: ['React', 'MUI'],
-            back: ['GraphQL', 'MongoDB']
-        },
-        items: [{
-            img: [],
-            url: {
-                github: 'https://github.com/jose-M2020/you-play',
-                demo: 'https://tech-manage.vercel.app/projects'
-            }
-        }],
-    }
+    // {
+    //     id: 6,
+    //     title: 'Administrador de proyectos',
+    //     status: 'in progress',
+    //     description: [
+    //       'El sistema de administración de proyectos de TI es una herramienta para mejorar la gestión de proyectos. Dicha plataforma permite a los usuarios crear nuevos proyectos, editar y administrar la información del proyecto, y agregar miembros del equipo para colaborar.',
+    //       'La herramienta ofrece una vista de tablero Kanban para la gestión de tareas, lo que permite a los usuarios visualizar el progreso de cada tarea en tiempo real. Los usuarios pueden mover las tareas entre diferentes columnas, agregar fecha de vencimiento, asignar prioridad, agregar descripción mediante un editor de texto y asignar tareas a miembros específicos del equipo.',
+    //       'El sistema cuenta con una función de edición de datos que permite a los usuarios actualizar la información del proyecto, como el nombre, la descripción y la fecha de finalización. También pueden agregar y eliminar miembros del equipo según sea necesario. Además, se puede ver una vista general del proyecto, que proporciona información sobre el progreso, el tiempo estimado y el tiempo real utilizado para cada tarea.',
+    //       'Para mejorar la experiencia de usuario, el sistema cuenta con una opción de modo oscuro y claro. Los usuarios pueden elegir su preferencia de color según su comodidad. También pueden crear, editar y eliminar usuarios según sea necesario.',
+    //     ],
+    //     tools: {
+    //         front: ['React', 'MUI'],
+    //         back: ['GraphQL', 'MongoDB']
+    //     },
+    //     items: [{
+    //         img: [],
+    //         url: {
+    //             github: 'https://github.com/jose-M2020/you-play',
+    //             demo: 'https://tech-manage.vercel.app/projects'
+    //         }
+    //     }],
+    // }
 ]
 
-export const skills = {
-    front: [
-        { name: 'HTML', icon: 'https://img.icons8.com/color/48/000000/html-5--v1.png' },
-        { name: 'CSS', icon: 'https://img.icons8.com/color/48/000000/css3.png' },
-        { name: 'SASS', icon: 'https://img.icons8.com/color/48/000000/sass.png' },
-        { name: 'JavaScript', icon: 'https://img.icons8.com/color/48/000000/javascript--v1.png' },
-        { name: 'TypeScript', icon: 'https://img.icons8.com/color/48/000000/typescript.png' },
-        { name: 'BootStrap', icon: 'https://img.icons8.com/color/48/000000/bootstrap.png' },
-        { name: 'Tailwind CSS', icon: 'https://img.icons8.com/color/48/000000/tailwind_css.png' },
-        { name: 'Angular', icon: 'https://img.icons8.com/fluency/48/000000/angularjs.png' },
-        { name: 'React', icon: 'https://img.icons8.com/color/48/000000/react-native.png' },
-    ],
-    back: [
-        { name: 'PHP', icon: 'https://img.icons8.com/officexs/40/000000/php-logo.png' },
-        { name: 'Laravel', icon: 'https://img.icons8.com/fluency/48/000000/laravel.png' },
-        { name: 'NodeJS', icon: 'https://img.icons8.com/color/48/000000/nodejs.png' },
-        { name: 'MySQL', icon: 'https://img.icons8.com/fluency/48/000000/mysql-logo.png' },
-        { name: 'MongoDB', icon: 'https://img.icons8.com/color/48/000000/mongodb.png' },
+export const skills = [
+  {
+    title: 'Desarrollo Frontend',
+    shortTitle: 'Frontend',
+    description: 'Tecnologías y herramientas para el desarrollo de interfaces de usuario modernas y responsivas.',
+    icon: 'fa-solid fa-desktop',
+    items: [
+      { name: 'HTML', icon: 'https://img.icons8.com/color/48/000000/html-5--v1.png' },
+      { name: 'CSS', icon: 'https://img.icons8.com/color/48/000000/css3.png' },
+      { name: 'SASS', icon: 'https://img.icons8.com/color/48/000000/sass.png' },
+      { name: 'JavaScript', icon: 'https://img.icons8.com/color/48/000000/javascript--v1.png' },
+      { name: 'TypeScript', icon: 'https://img.icons8.com/color/48/000000/typescript.png' },
+      { name: 'BootStrap', icon: 'https://img.icons8.com/color/48/000000/bootstrap.png' },
+      { name: 'Tailwind CSS', icon: 'https://img.icons8.com/color/48/000000/tailwind_css.png' },
+      { name: 'Angular', icon: 'https://img.icons8.com/fluency/48/000000/angularjs.png' },
+      { name: 'React', icon: 'https://img.icons8.com/color/48/000000/react-native.png' },
+      { name: 'VueJS', icon: 'https://img.icons8.com/color/48/000000/vue-js.png' },
+      { name: 'Next.js', icon: 'https://img.icons8.com/color/48/000000/nextjs.png' },
     ]
-}
+  },
+  {
+    title: 'Desarrollo Backend',
+    shortTitle: 'Backend',
+    description: 'Tecnologías y herramientas para el desarrollo de servidores, APIs y bases de datos.',
+    icon: 'fa-solid fa-server',
+    items: [
+      { name: 'PHP', icon: 'https://img.icons8.com/officexs/40/000000/php-logo.png' },
+      { name: 'Laravel', icon: 'https://img.icons8.com/fluency/48/000000/laravel.png' },
+      { name: 'NodeJS', icon: 'https://img.icons8.com/color/48/000000/nodejs.png' },
+      { name: 'MySQL', icon: 'https://img.icons8.com/fluency/48/000000/mysql-logo.png' },
+      // { name: 'MongoDB', icon: 'https://img.icons8.com/color/48/000000/mongodb.png' },
+    ]
+  },
+  {
+    title: 'Otras herramientas',
+    shortTitle: 'Otros',
+    description: 'Herramientas y utilidades adicionales para el desarrollo y control de versiones.',
+    icon: 'fa-solid fa-gear',
+    items: [
+      { name: 'Git', icon: 'https://img.icons8.com/color/48/000000/git.png' },
+      { name: 'GitHub', icon: 'https://img.icons8.com/color/48/000000/github--v1.png' },
+      { name: 'Inkscape', icon: 'https://img.icons8.com/color/48/000000/inkscape.png' },
+    ]
+  }
+];
 
 export const editors = [
     {
@@ -217,33 +242,106 @@ export const socialMedia = [
 
 export const links = [
   {
-      name: 'INICIO',
-      url: '/#',
-      icon: 'fa-solid fa-home',
-      showMobile: true,
+    id: 'home',
+    name: 'INICIO',
+    url: '/#',
+    icon: 'fa-solid fa-home',
+    showMobile: true,
   },
   {
-      name: 'ACERCA',
-      url: '/#about',
-      icon: 'fa-solid fa-user',
-      showMobile: true,
+    id: 'about',
+    name: 'ACERCA',
+    url: '/#about',
+    icon: 'fa-solid fa-user',
+    showMobile: true,
   },
   {
-      name: 'PORTAFOLIO',
-      url: '/#portfolio',
-      icon: 'fa-regular fa-folder-open',
-      showMobile: true,
+    id: 'experience',
+    name: 'EXPERIENCIA',
+    url: '/#experience',
+    icon: 'fa-solid fa-code',
+    showMobile: true,
   },
   {
-      name: 'CONTACTO',
-      url: '/#contact',
-      icon: 'fa-solid fa-envelope',
-      showMobile: true,
+    id: 'portfolio',
+    name: 'PORTAFOLIO',
+    url: '/#portfolio',
+    icon: 'fa-regular fa-folder-open',
+    showMobile: true,
   },
   {
-      name: 'CV',
-      url: '/JoséSilva-CV.pdf',
-      icon: 'fa-solid fa-file',
-      showMobile: false,
+    id: 'contact',
+    name: 'CONTACTO',
+    url: '/#contact',
+    icon: 'fa-solid fa-envelope',
+    showMobile: true,
+  },
+  {
+    name: 'CV',
+    url: '/JoséSilva-CV.pdf',
+    icon: 'fa-solid fa-file',
+    showMobile: false,
   }
+];
+
+export const workExperiences = [
+  {
+    company: 'XY Booster',
+    period: 'Oct 2024 – Jun 2025',
+    color: '#2b8c8a',
+    title: 'Desarrollador Frontend Middle',
+    description: [
+      'Mejoré los flujos de onboarding con React y Next.js, optimizando UX y lógica de negocio.',
+      'Centralicé la lógica de simulación de crédito en un paquete NPM reutilizable.',
+      'Optimicé flujos asincrónicos de APIs financieras, mejorando la percepción de carga y continuidad del proceso.',
+      'Reduje la carga operativa desarrollando un portal de clientes y un CRM interno para evaluar solicitudes de crédito.',
+    ],
+    skills: [
+      { name: 'React', icon: 'https://img.icons8.com/color/48/000000/react-native.png' },
+      { name: 'Next.js', icon: 'https://img.icons8.com/color/48/000000/nextjs.png' },
+      { name: 'TypeScript', icon: 'https://img.icons8.com/color/48/000000/typescript.png' },
+      { name: 'Tailwind CSS', icon: 'https://img.icons8.com/color/48/000000/tailwind_css.png' },
+      { name: 'SASS', icon: 'https://img.icons8.com/color/48/000000/sass.png' },
+      { name: 'NodeJS', icon: 'https://img.icons8.com/color/48/000000/nodejs.png' },
+    ]
+  },
+  {
+    company: 'Satori Tech Mx',
+    period: 'Oct 2023 – Sep 2024',
+    color: '#2b8c8a',
+    title: 'Desarrollador Full-Stack',
+    description: [
+      'Desarrollé paneles administrativos modulares con React y Vue, incluyendo métricas, gráficas y gestión de contenido.',
+      'Propuse mejoras funcionales anticipando problemas técnicos o de negocio.',
+      'Lideré tareas frontend en proyectos colaborativos, asegurando consistencia visual y técnica.',
+    ],
+    skills: [
+      { name: 'React', icon: 'https://img.icons8.com/color/48/000000/react-native.png' },
+      { name: 'VueJS', icon: 'https://img.icons8.com/color/48/000000/vue-js.png' },
+      { name: 'TypeScript', icon: 'https://img.icons8.com/color/48/000000/typescript.png' },
+      { name: 'Tailwind CSS', icon: 'https://img.icons8.com/color/48/000000/tailwind_css.png' },
+      { name: 'SASS', icon: 'https://img.icons8.com/color/48/000000/sass.png' },
+      { name: 'BootStrap', icon: 'https://img.icons8.com/color/48/000000/bootstrap.png' },
+      { name: 'Laravel', icon: 'https://img.icons8.com/fluency/48/000000/laravel.png' },
+      { name: 'MySQL', icon: 'https://img.icons8.com/fluency/48/000000/mysql-logo.png' },
+    ]
+  },
+  {
+    company: 'Cactus Labs',
+    period: 'Ene 2022 – Jun 2022',
+    color: '#2b8c8a',
+    title: 'Desarrollador Full-Stack',
+    description: [
+      'Desarrollé un sistema e-commerce con Angular y Stripe para automatizar pagos y facilitar ventas online.',
+      'Mejoré el rendimiento web hasta en un 45% usando Lighthouse, lazy loading y compresión de recursos.',
+      'Implementé correcciones visuales y de contenido basadas en feedback de clientes.',
+    ],
+    skills: [
+      { name: 'Angular', icon: 'https://img.icons8.com/fluency/48/000000/angularjs.png' },
+      { name: 'SASS', icon: 'https://img.icons8.com/color/48/000000/sass.png' },
+      { name: 'BootStrap', icon: 'https://img.icons8.com/color/48/000000/bootstrap.png' },
+      { name: 'NodeJS', icon: 'https://img.icons8.com/color/48/000000/nodejs.png' },
+      { name: 'MySQL', icon: 'https://img.icons8.com/fluency/48/000000/mysql-logo.png' },
+    ]
+  },
 ];
